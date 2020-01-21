@@ -1,0 +1,561 @@
+
+/* --- MARGIN HELPERS --- */
+
+.m-0 {
+    margin: 0 !important;
+}
+
+.m-r-0 {
+    margin-right: 0 !important;
+}
+
+.m-r-5 {
+    margin-right: 5px !important;
+}
+
+.m-l-0 {
+    margin-left: 0 !important;
+}
+
+.m-l-5 {
+    margin-left: 5px !important;
+}
+
+.m-b-0 {
+    margin-bottom: 0 !important;
+}
+
+.m-b-5 {
+    margin-bottom: 5px !important;
+}
+
+/* --- TEXT CSS --- */
+.mf_blue {
+    color: #3498db !important;
+}
+
+.mf_table_value {
+    color: #777;
+    font-weight: 600;
+    font-size: 16px;
+    vertical-align: middle;
+    text-align: center;
+    margin: auto;
+    height: 100%;
+}
+
+/* --- IMG CSS --- */
+.mf_head_logo {
+    margin-left: 0px;
+    width: 200px;
+    height: auto;
+}
+
+
+/* --- SECTION HEADERS --- */
+.mf_section_header {
+    font-size: 16px;
+    color: #3498db;
+    border-bottom: 1px solid #e0e3e5;
+}
+
+.mf_head_title {
+    font-weight: 600;
+}
+
+
+/* --- VERTICAL ALIGN MODALS --- */
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-top: -50px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+/* --- Horizontal Rules --- */
+hr {
+    border: 0;
+    margin: 1.35em auto;
+    max-width: 100%;
+    background-position: 50%;
+    box-sizing: border-box;
+}
+
+.fade-2 {
+    border-width: 0 0 1px;
+    color: skyblue;
+    border-image: linear-gradient(90deg, rgba(135, 206, 235, 0), skyblue 50%, rgba(135, 206, 235, 0) 100%) 0 0 100%;
+    border-style: solid;
+}
+
+
+.mf_divider {
+    border-width: 0 0 1px;
+    color: #f5f7fa;
+    border-style: solid;
+    margin-top: 0px !important;
+    padding: 0px !important;
+}
+
+/* --- PANEL HELPER STYLES --- */
+
+.trunc {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mf_btn_btm_panel {
+
+    bottom: 0;
+
+}
+
+
+/* --- MAILFUNNELS BUTTON CSS --- */
+.mf_select_btn-primary {
+    font-family: 'Avenir Next', sans-serif !important;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 10px 17px;
+    border: 1px solid #3498db;
+    -webkit-border-radius: 2px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 2px;
+    -moz-background-clip: padding;
+    border-radius: 2px;
+    background-clip: padding-box;
+    -webkit-transition: color 0.2s linear, background-color 0.2s linear;
+    transition: color 0.2s linear, background-color 0.2s linear;
+    color: #3498db;
+
+}
+
+.mf_table_action_btn {
+    font-family: 'Avenir Next', sans-serif !important;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 10px 17px;
+    border: 1px solid #3498db;
+    -webkit-border-radius: 2px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 2px;
+    -moz-background-clip: padding;
+    border-radius: 2px;
+    background-clip: padding-box;
+    -webkit-transition: color 0.2s linear, background-color 0.2s linear;
+    transition: color 0.2s linear, background-color 0.2s linear;
+    color: #3498db;
+}
+
+
+
+.mf_error {
+    font-size: 75px;
+    line-height: 90px;
+    margin: 20px 0;
+    color: #3498db;
+}
+
+
+/*  MAILFUNNELS CHECKBOX OPTIONS */
+label {
+    display: inline-block;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+input[type="checkbox"]:not(.js-switch):not(#sn-checkbox-open-in-new-window) {
+    visibility: hidden;
+    position: absolute;
+}
+input[type="checkbox"]:not(.js-switch):not(#sn-checkbox-open-in-new-window) + span {
+    float: left;
+    position: relative;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-right: 14.5px;
+    background-color: #ffffff;
+    border: 1px solid #009ED8;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+
+input[type="checkbox"]:checked:not(.js-switch):not(#sn-checkbox-open-in-new-window) + span {
+    float: left;
+    position: relative;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-right: 14.5px;
+    background-color: #009ED8;
+    border: 1px solid #009ED8;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+input[type="checkbox"]:not(.js-switch):not(#sn-checkbox-open-in-new-window) + span:before {
+    position: absolute;
+    bottom: 6px;
+    left: -8.5px;
+    content: "";
+    display: block;
+    width: 34px;
+    height: 34px;
+    border: 2px solid #fff;
+    background-color: #009ED8;
+    transform: scale(0.5) rotate(45deg);
+    opacity: 0;
+    transition: all 0.3s ease-in;
+}
+input[type="checkbox"].error:not(.js-switch):not(#sn-checkbox-open-in-new-window) + span {
+    background-color: #FE5F55;
+}
+input[type="checkbox"].wrap:not(.js-switch):not(#sn-checkbox-open-in-new-window) + span {
+    margin-bottom: 15px;
+}
+input[type="checkbox"]:checked:not(.js-switch):not(#sn-checkbox-open-in-new-window) + span:before {
+    position: absolute;
+    bottom: 11.33333333px;
+    left: -8.5px;
+    content: "";
+    display: block;
+    width: 34px;
+    height: 34px;
+    border: 2px solid #fff;
+    background-color: #009ED8;
+    transform: scale(1) rotate(45deg);
+    opacity: 1;
+    border-radius: 2px;
+}
+
+
+/* ---- INPUT FIELD CSS --- */
+.mf_textarea {
+    border-radius: 4px;
+    color: #3498db;
+}
+
+input {
+    border-radius: 4px !important;
+}
+
+input:focus {
+    border-color: #3498db !important;
+    color: #3498db !important;
+}
+
+input:hover {
+    border-color: #3498db !important;
+    color: #3498db !important;
+}
+
+textarea:focus {
+    border-color: #3498db !important;
+    color: #3498db !important;
+}
+
+
+::-webkit-input-placeholder { /* Chrome */
+    transition: opacity 250ms ease-in-out;
+}
+:focus::-webkit-input-placeholder {
+    color: #3498db !important;
+    opacity: 0.5;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    transition: opacity 250ms ease-in-out;
+}
+:focus:-ms-input-placeholder {
+    color: #3498db !important;
+    opacity: 0.5;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    opacity: 1;
+    transition: opacity 250ms ease-in-out;
+}
+:focus::-moz-placeholder {
+    color: #3498db !important;
+    opacity: 0.5;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+    opacity: 1;
+    transition: opacity 250ms ease-in-out;
+}
+:focus:-moz-placeholder {
+    color: #3498db !important;
+    opacity: 0.5;
+}
+
+
+/* Custom Select */
+.select {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+.select:focus {
+    color: #3498db !important;
+    border-color: #3498db !important;
+}
+
+.select:hover {
+    color: #3498db !important;
+    border-color: #3498db !important;
+
+}
+
+#file-area {
+    width: 100% !important;
+    position: relative;
+    display: inline-block !important;
+
+}
+#file-area input[type=file] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+#file-area .file-dummy {
+    width: 100% !important;
+    padding: 30px;
+    background: rgba(214, 216, 216, 0.2) !important;
+    border: 2px dashed rgba(214, 216, 216, 0.2) !important;
+    text-align: center;
+    transition: background 0.3s ease-in-out !important;
+}
+#file-area .file-dummy .success {
+    display: none;
+}
+
+#file-area:hover .file-dummy {
+    background: rgba(214, 216, 216, 0.8) !important;
+}
+#file-area input[type=file]:focus + .file-dummy {
+    outline: 2px solid rgba(255, 255, 255, 0.5) !important;
+    outline: -webkit-focus-ring-color auto 5px !important;
+}
+#file-area input[type=file]:valid + .file-dummy {
+    border-color: rgba(58, 153, 217, 0.4) !important;
+    background-color: rgba(58, 153, 217, 0.3) !important;
+}
+#file-area input[type=file]:valid + .file-dummy .success {
+    display: inline-block;
+}
+#file-area input[type=file]:valid + .file-dummy .default-file {
+    display: none;
+}
+
+
+.note-toolbar {
+    padding-bottom: 10px !important;
+}
+
+.note-editor .note-editable span {
+    line-height: 1;
+}
+
+.note-btn.btn.btn-sm {
+    padding: 7px 12px;
+}
+
+.note-btn.btn.btn-sm.dropdown-toggle {
+    padding: 5px;
+    text-align: center;
+    height: 35px !important;
+}
+
+.note-toolbar .note-para .note-btn-group .dropdown-toggle,
+.note-toolbar .note-fontsize .note-btn-group .dropdown-toggle,
+.note-toolbar .note-height .note-btn-group .dropdown-toggle,
+.note-toolbar .note-color .note-btn-group .dropdown-toggle {
+
+}
+
+/* --- TEMPLATE PANELS CSS --- */
+
+.mf-template-name {
+    text-align: center;
+    word-wrap: break-word;
+    font-size: 16px;
+    margin: 10px 25px 5px 0;
+    width: 100%;
+    font-weight: 600;
+}
+
+.mf-template-label {
+    margin-top: 0 !important;
+    line-height: 11px;
+    text-align: center;
+    border: 1px solid #4792c8;
+    color: #4792c8;
+    background-color: transparent;
+}
+
+.mf-template-label-fill {
+    margin-top: 0 !important;
+    line-height: 11px;
+    text-align: center;
+    border: 1px solid #4792c8;
+    background-color: #4792c8;
+}
+
+.mf-panel-divider {
+    border-bottom: 1px solid #4792c8;
+    margin-top: 10px;
+}
+
+.mf-panel-divider-no-mar {
+    border-bottom: 1px solid #4792c8;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+.mf-funnel-revenue-count {
+    color: #7a878d;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+
+.mf-funnel-revenue-subtitle {
+    margin-bottom: 10px;
+}
+
+.mf-funnel-active-toggle .switchery {
+    height: 20px !important;
+    width: 40px !important;
+}
+
+.mf-funnel-active-toggle .switchery>small {
+    height: 20px !important;
+    width: 20px;
+}
+
+.mf-builder-product-select-label {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+
+
+/* --- EMAIL TEMPLATE BUILDER CSS --- */
+
+.mf-builder-page-title {
+    font-size: 1rem;
+    color: #3d3e3e !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.mf-builder-title {
+    font-size: 1rem;
+    color: #3d3e3e !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.mf-builder-subtitle {
+    font-size: 0.7rem;
+    margin-top: 0;
+    color: #3a99d9 !important;
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+
+.mf-builder-action-top-btn {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.mf-builder-action-top-btn-text {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+
+
+.mf-builder-action-btn {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+
+.mf-builder-action-btn-sm {
+    background: #3a99d9;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+
+.mf-email-builder-row {
+    margin-bottom: 100px;
+}
+
+.mf-email-builder-contentarea {
+    background: #ffffff;
+}
+
+.mf-btn-builder-action {
+    padding: 7px 25px;
+    font-size: 1em;
+    line-height: 2em;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    max-width: 100%;
+
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    /*white-space: nowrap;*/
+    word-wrap: break-word !important;
+    -webkit-transition: all 0.16s ease;
+    transition: all 0.16s ease;
+}
+
+
+
+

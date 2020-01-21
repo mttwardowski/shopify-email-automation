@@ -1,0 +1,265 @@
+<% content_for :javascript do %>
+    <script type="text/javascript">
+        ShopifyApp.ready(function () {
+            ShopifyApp.Bar.initialize({
+                icon: '/mailfunnels-logo.jpg'
+            });
+        });
+    </script>
+
+    <%= javascript_include_tag 'pages/emailtemplates.js' %>
+
+
+    <div class="hidden">
+      <input id="current_app_id" type="number" value="<%= @app.id %>"/>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="page-title">
+          <div class="title_left">
+            <img class="mf_head_logo" src="/mf_logos/mf_logo_text.png"/>
+            <h3><small class="mf_head_title">Email Templates</small></h3>
+          </div>
+
+          <div class="title_right">
+            <button class="btn btn-primary btn-sm btn-border pull-right" type="button" data-toggle="modal" data-target="#newEmailTemplateModal"><i class="fa fa-plus"></i> Add Email Template</button>
+          </div>
+
+          <hr/>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="fade-2"/>
+
+
+    <div class="row">
+
+      <% if @templates.any? %>
+          <% @templates.each do |template| %>
+
+              <!-- START FUNNEL PANEL -->
+              <!-- ~~~~~~~~~~~~~~~~~~ -->
+              <div class="col-md-3 col-xs-12 widget widget_tally_box">
+                <div class="x_panel fixed_height_300" >
+
+                  <div class="x_content" style="max-height: 180px; min-height: 180px;  overflow: hidden; text-overflow: ellipsis;">
+
+                    <div class="text-center">
+                      <% if template.has_checkout_url === 1 or template.has_ac_holder === 1 %>
+                          <label class="mf-template-label label label-default">Abandoned Cart</label>
+                      <% end %>
+                      <% if template.is_dynamic === 1 %>
+                          <label class="mf-template-label-fill label label-default">Dynamic</label>
+                      <% end %>
+                    </div>
+
+                    <h3 class="mf-template-name"><%= template.name %></h3>
+
+                    <hr class="mf-panel-divider"/>
+
+
+
+                    <% if !template.email_subject.nil? && !(template.email_subject=== '') %>
+                        <p style="text-align: left;"><b>Subject: </b><%= template.email_subject %></p>
+                    <% else %>
+                        <p style="word-wrap: break-word; text-align: left;"><b>Subject: </b>No Subject</p>
+                    <% end %>
+
+                    <% if !template.description.nil? && !(template.description === '') %>
+                        <p style="text-align: left;"><b>Description: </b><%= template.description %></p>
+                    <% else %>
+                        <p style="word-wrap: break-word; text-align: left;"><b>Description: </b>No Description</p>
+                    <% end %>
+
+
+                  </div>
+
+                  <div class="x_content mf_btn_btm_panel">
+
+                    <div class="row">
+                      <% if template.style_type === 1 %>
+
+                          <div class="col-xs-12">
+                            <a href="<% root_url %>template_builder/<%= template.id %>" class="btn btn-block btn-border btn-primary">View/Edit</a>
+                          </div>
+
+                      <% else %>
+
+                          <div class="col-xs-6">
+                            <a href="<% root_url %>edit_email_template/<%= template.id %>" class="btn btn-block btn-border btn-primary">Edit</a>
+                          </div>
+
+                          <div class="col-xs-6">
+                            <a href="<% root_url %>view_email_template/<%= template.id %>" class="btn btn-block btn-border btn-primary">View</a>
+                          </div>
+
+                      <% end %>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <a href="#" class="btn btn-block btn-border btn-primary mf-clone-template" data-id="<%= template.id %>">Clone</a>
+                      </div>
+
+                      <div class="col-xs-6">
+                        <button data-id="<%= template.id %>" class="btn btn-block btn-border btn-danger delete_template_button">Delete</button>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              <!-- ~~~~~~~~~~~~~~~~ -->
+              <!-- END FUNNEL PANEL -->
+
+          <% end %>
+      <% else %>
+
+          <br/>
+          <h5 class="text-center">You have no email templates yet.</h5>
+          <p class="text-center">Create an email template by clicking the button above.</p>
+
+      <% end %>
+
+
+    </div>
+
+
+
+
+    <div id="newEmailTemplateModal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Create New Email Template</h4>
+          </div>
+
+          <form class="form-horizontal form-label-left">
+
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Template Name</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="template_name_input" type="text" class="form-control" placeholder="Name">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Template Description</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <textarea id="template_description_input" class="form-control" rows="3" placeholder="Description for email template"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Subject</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="template_email_subject_input" type="text" class="form-control" placeholder="Email Subject">
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <div class="col-xs-12 col-md-9 col-md-offset-3 vcenter m-b-5">
+                  <label for="mf-template-new-style"><input type="checkbox" id="mf-template-new-style" /><span></span> Drag and Drop Builder <small class="text-primary"> BETA</small></label>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="reset" class="btn btn-primary">Reset</button>
+              <button id="new_template_submit_button" type="button" class="btn btn-success">Submit</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- START CLONE TEMPLATE MODAL -->
+    <div id="mf-clone-template-modal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Clone Template</h4>
+          </div>
+
+          <form class="form-horizontal form-label-left">
+
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Template Name</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="mf_clone_name_input" type="text" class="form-control" placeholder="Name">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Template Description</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <textarea id="mf_clone_description_input" class="form-control" rows="3" placeholder="Description for email template"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Subject</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="mf_clone_subject_input" type="text" class="form-control" placeholder="Email Subject">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button id="mf_clone_submit_button" type="button" class="btn btn-success" data-id="0">Submit</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <!-- END CLONE TEMPLATE MODAL -->
+
+
+    <div id="confirm_delete_modal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title" id="myModalLabel">Confirm Template Delete</h4>
+          </div>
+
+          <div class="modal-body">
+            <h4>Are you sure you want to delete this template?</h4>
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <button id="confirm_delete_template_button" type="button" class="btn btn-success">Confirm</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+<% end %>

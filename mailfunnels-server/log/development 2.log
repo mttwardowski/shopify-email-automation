@@ -1,0 +1,494 @@
+DEPRECATION WARNING: to_prepare is deprecated and will be removed from Rails 5.1 (use ActiveSupport::Reloader.to_prepare instead) (called from <top (required)> at /Users/mttwardowski/Desktop/Mail Funnel App/mailfunnels-server/config/initializers/reload_api.rb:10)
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:13 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (3.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/apps?user_id=2" for ::1 at 2018-02-12 17:15:13 -0500
+  [1m[36mApp Load (5.0ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."user_id" = $1[0m  [["user_id", 2]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:15:13 -0500
+  [1m[36mApp Load (1.7ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users?id=2" for ::1 at 2018-02-12 17:15:13 -0500
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:13 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:15:14 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:14 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:15:14 -0500
+  [1m[36mSubscriber Load (2.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:15:15 -0500
+  [1m[36mApp Load (0.4ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users?id=2" for ::1 at 2018-02-12 17:15:15 -0500
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:15 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:15:15 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:15 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:15:15 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mApp Load (0.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users/2" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/apps?user_id=2" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mApp Load (0.4ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."user_id" = $1[0m  [["user_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_jobs?app_id=2&sent=1" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mEmailJob Load (3.8ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2[0m  [["app_id", 2], ["sent", 1]]
+Started GET "/api/email_jobs?app_id=2&opened=1" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mEmailJob Load (0.4ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2[0m  [["app_id", 2], ["opened", 1]]
+Started GET "/api/email_jobs?app_id=2&clicked=1" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2[0m  [["app_id", 2], ["clicked", 1]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:15:16 -0500
+  [1m[36mFunnel Load (2.8ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:15:17 -0500
+  [1m[36mSubscriber Load (0.6ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:15:17 -0500
+  [1m[36mFunnel Load (0.4ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_lists?app_id=2" for ::1 at 2018-02-12 17:15:17 -0500
+  [1m[36mEmailList Load (2.6ms)[0m  [1m[34mSELECT "email_lists".* FROM "email_lists" WHERE "email_lists"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_templates?app_id=2" for ::1 at 2018-02-12 17:15:17 -0500
+  [1m[36mEmailTemplate Load (2.0ms)[0m  [1m[34mSELECT "email_templates".* FROM "email_templates" WHERE "email_templates"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:15:21 -0500
+  [1m[36mApp Load (0.8ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users?id=2" for ::1 at 2018-02-12 17:15:21 -0500
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:21 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:15:21 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:21 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:15:21 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:15:21 -0500
+  [1m[36mApp Load (0.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users/2" for ::1 at 2018-02-12 17:15:21 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/apps?user_id=2" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mApp Load (0.4ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."user_id" = $1[0m  [["user_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_jobs?app_id=2&sent=1" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2[0m  [["app_id", 2], ["sent", 1]]
+Started GET "/api/email_jobs?app_id=2&opened=1" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mEmailJob Load (0.4ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2[0m  [["app_id", 2], ["opened", 1]]
+Started GET "/api/email_jobs?app_id=2&clicked=1" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mEmailJob Load (0.4ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2[0m  [["app_id", 2], ["clicked", 1]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mFunnel Load (0.5ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mFunnel Load (0.4ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_lists?app_id=2" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mEmailList Load (0.4ms)[0m  [1m[34mSELECT "email_lists".* FROM "email_lists" WHERE "email_lists"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_templates?app_id=2" for ::1 at 2018-02-12 17:15:22 -0500
+  [1m[36mEmailTemplate Load (0.4ms)[0m  [1m[34mSELECT "email_templates".* FROM "email_templates" WHERE "email_templates"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mApp Load (0.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/subscribers?app_id=2&day=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mSubscriber Load (1.6ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:15:23.393024"], ["created_at", "2018-02-12 22:15:23.393099"]]
+Started GET "/api/subscribers?app_id=2&week=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:15:23.409233"], ["created_at", "2018-02-12 22:15:23.410051"]]
+Started GET "/api/subscribers?app_id=2&month=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:15:23.417561"], ["created_at", "2018-02-12 22:15:23.417729"]]
+Started GET "/api/unsubscribers?app_id=2&day=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mUnsubscriber Load (1.7ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:15:23.429838"], ["created_at", "2018-02-12 22:15:23.429887"]]
+Started GET "/api/unsubscribers?app_id=2&week=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mUnsubscriber Load (0.4ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:15:23.441832"], ["created_at", "2018-02-12 22:15:23.441958"]]
+Started GET "/api/unsubscribers?app_id=2&month=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mUnsubscriber Load (0.4ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:15:23.449744"], ["created_at", "2018-02-12 22:15:23.449841"]]
+Started GET "/api/email_jobs?app_id=2&day=1&sent=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mEmailJob Load (0.6ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-02-11 22:15:23.456521"], ["created_at", "2018-02-12 22:15:23.456568"]]
+Started GET "/api/email_jobs?app_id=2&sent=1&week=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mEmailJob Load (0.6ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-02-05 22:15:23.463812"], ["created_at", "2018-02-12 22:15:23.463974"]]
+Started GET "/api/email_jobs?app_id=2&month=1&sent=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-01-13 22:15:23.473413"], ["created_at", "2018-02-12 22:15:23.473515"]]
+Started GET "/api/email_jobs?app_id=2&day=1&opened=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-02-11 22:15:23.480611"], ["created_at", "2018-02-12 22:15:23.480696"]]
+Started GET "/api/email_jobs?app_id=2&opened=1&week=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-02-05 22:15:23.487328"], ["created_at", "2018-02-12 22:15:23.487423"]]
+Started GET "/api/email_jobs?app_id=2&month=1&opened=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-01-13 22:15:23.496075"], ["created_at", "2018-02-12 22:15:23.496176"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&day=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-02-11 22:15:23.502801"], ["created_at", "2018-02-12 22:15:23.502842"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&week=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-02-05 22:15:23.512526"], ["created_at", "2018-02-12 22:15:23.512630"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&month=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mEmailJob Load (0.4ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-01-13 22:15:23.519097"], ["created_at", "2018-02-12 22:15:23.519208"]]
+Started GET "/api/captured_hooks?app_id=2&day=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mCapturedHook Load (1.8ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:15:23.531233"], ["created_at", "2018-02-12 22:15:23.531292"]]
+Started GET "/api/captured_hooks?app_id=2&week=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mCapturedHook Load (0.5ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:15:23.543730"], ["created_at", "2018-02-12 22:15:23.543894"]]
+Started GET "/api/captured_hooks?app_id=2&month=1" for ::1 at 2018-02-12 17:15:23 -0500
+  [1m[36mCapturedHook Load (0.4ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:15:23.550862"], ["created_at", "2018-02-12 22:15:23.550959"]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:15:25 -0500
+  [1m[36mApp Load (0.4ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users/2" for ::1 at 2018-02-12 17:15:25 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:25 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:15:26 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:26 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:15:26 -0500
+  [1m[36mApp Load (0.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mApp Load (0.6ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users/2" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/apps?user_id=2" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mApp Load (0.4ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."user_id" = $1[0m  [["user_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_jobs?app_id=2&sent=1" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2[0m  [["app_id", 2], ["sent", 1]]
+Started GET "/api/email_jobs?app_id=2&opened=1" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mEmailJob Load (0.6ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2[0m  [["app_id", 2], ["opened", 1]]
+Started GET "/api/email_jobs?app_id=2&clicked=1" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2[0m  [["app_id", 2], ["clicked", 1]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mFunnel Load (0.4ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mFunnel Load (0.6ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_lists?app_id=2" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mEmailList Load (0.6ms)[0m  [1m[34mSELECT "email_lists".* FROM "email_lists" WHERE "email_lists"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_templates?app_id=2" for ::1 at 2018-02-12 17:15:27 -0500
+  [1m[36mEmailTemplate Load (0.4ms)[0m  [1m[34mSELECT "email_templates".* FROM "email_templates" WHERE "email_templates"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mApp Load (0.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/subscribers?app_id=2&day=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:15:28.412618"], ["created_at", "2018-02-12 22:15:28.412664"]]
+Started GET "/api/subscribers?app_id=2&week=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:15:28.419066"], ["created_at", "2018-02-12 22:15:28.419247"]]
+Started GET "/api/subscribers?app_id=2&month=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:15:28.427203"], ["created_at", "2018-02-12 22:15:28.427317"]]
+Started GET "/api/unsubscribers?app_id=2&day=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mUnsubscriber Load (0.4ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:15:28.433757"], ["created_at", "2018-02-12 22:15:28.433804"]]
+Started GET "/api/unsubscribers?app_id=2&week=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mUnsubscriber Load (0.4ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:15:28.444039"], ["created_at", "2018-02-12 22:15:28.444143"]]
+Started GET "/api/unsubscribers?app_id=2&month=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mUnsubscriber Load (0.4ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:15:28.450959"], ["created_at", "2018-02-12 22:15:28.451081"]]
+Started GET "/api/email_jobs?app_id=2&day=1&sent=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-02-11 22:15:28.459045"], ["created_at", "2018-02-12 22:15:28.459094"]]
+Started GET "/api/email_jobs?app_id=2&sent=1&week=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-02-05 22:15:28.466656"], ["created_at", "2018-02-12 22:15:28.466752"]]
+Started GET "/api/email_jobs?app_id=2&month=1&sent=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-01-13 22:15:28.475274"], ["created_at", "2018-02-12 22:15:28.475376"]]
+Started GET "/api/email_jobs?app_id=2&day=1&opened=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-02-11 22:15:28.481865"], ["created_at", "2018-02-12 22:15:28.481905"]]
+Started GET "/api/email_jobs?app_id=2&opened=1&week=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-02-05 22:15:28.488521"], ["created_at", "2018-02-12 22:15:28.488621"]]
+Started GET "/api/email_jobs?app_id=2&month=1&opened=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-01-13 22:15:28.495413"], ["created_at", "2018-02-12 22:15:28.495587"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&day=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-02-11 22:15:28.502217"], ["created_at", "2018-02-12 22:15:28.502255"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&week=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-02-05 22:15:28.510159"], ["created_at", "2018-02-12 22:15:28.510256"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&month=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-01-13 22:15:28.517170"], ["created_at", "2018-02-12 22:15:28.517269"]]
+Started GET "/api/captured_hooks?app_id=2&day=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mCapturedHook Load (0.5ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:15:28.524805"], ["created_at", "2018-02-12 22:15:28.524854"]]
+Started GET "/api/captured_hooks?app_id=2&week=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mCapturedHook Load (0.5ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:15:28.534171"], ["created_at", "2018-02-12 22:15:28.534279"]]
+Started GET "/api/captured_hooks?app_id=2&month=1" for ::1 at 2018-02-12 17:15:28 -0500
+  [1m[36mCapturedHook Load (0.7ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:15:28.542292"], ["created_at", "2018-02-12 22:15:28.542434"]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:17:50 -0500
+  [1m[36mApp Load (0.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users/2" for ::1 at 2018-02-12 17:17:50 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:17:50 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:17:51 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:17:51 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:17:51 -0500
+  [1m[36mApp Load (0.6ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:17:58 -0500
+  [1m[36mApp Load (0.6ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users/2" for ::1 at 2018-02-12 17:17:58 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:17:58 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/apps?user_id=2" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mApp Load (0.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."user_id" = $1[0m  [["user_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_jobs?app_id=2&sent=1" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2[0m  [["app_id", 2], ["sent", 1]]
+Started GET "/api/email_jobs?app_id=2&opened=1" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2[0m  [["app_id", 2], ["opened", 1]]
+Started GET "/api/email_jobs?app_id=2&clicked=1" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mEmailJob Load (0.4ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2[0m  [["app_id", 2], ["clicked", 1]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mFunnel Load (0.5ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mFunnel Load (0.4ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_lists?app_id=2" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mEmailList Load (0.4ms)[0m  [1m[34mSELECT "email_lists".* FROM "email_lists" WHERE "email_lists"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_templates?app_id=2" for ::1 at 2018-02-12 17:17:59 -0500
+  [1m[36mEmailTemplate Load (0.4ms)[0m  [1m[34mSELECT "email_templates".* FROM "email_templates" WHERE "email_templates"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mApp Load (0.4ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/subscribers?app_id=2&day=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mSubscriber Load (0.6ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:18:00.271485"], ["created_at", "2018-02-12 22:18:00.271540"]]
+Started GET "/api/subscribers?app_id=2&week=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:18:00.293103"], ["created_at", "2018-02-12 22:18:00.293281"]]
+Started GET "/api/subscribers?app_id=2&month=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:18:00.307785"], ["created_at", "2018-02-12 22:18:00.307960"]]
+Started GET "/api/unsubscribers?app_id=2&day=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mUnsubscriber Load (0.6ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:18:00.323482"], ["created_at", "2018-02-12 22:18:00.323556"]]
+Started GET "/api/unsubscribers?app_id=2&week=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mUnsubscriber Load (0.4ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:18:00.333853"], ["created_at", "2018-02-12 22:18:00.334002"]]
+Started GET "/api/unsubscribers?app_id=2&month=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mUnsubscriber Load (0.7ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:18:00.343297"], ["created_at", "2018-02-12 22:18:00.343499"]]
+Started GET "/api/email_jobs?app_id=2&day=1&sent=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mEmailJob Load (1.9ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-02-11 22:18:00.353609"], ["created_at", "2018-02-12 22:18:00.353810"]]
+Started GET "/api/email_jobs?app_id=2&sent=1&week=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mEmailJob Load (0.6ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-02-05 22:18:00.373066"], ["created_at", "2018-02-12 22:18:00.373224"]]
+Started GET "/api/email_jobs?app_id=2&month=1&sent=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mEmailJob Load (0.6ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-01-13 22:18:00.388546"], ["created_at", "2018-02-12 22:18:00.388724"]]
+Started GET "/api/email_jobs?app_id=2&day=1&opened=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mEmailJob Load (1.9ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-02-11 22:18:00.399614"], ["created_at", "2018-02-12 22:18:00.399690"]]
+Started GET "/api/email_jobs?app_id=2&opened=1&week=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mEmailJob Load (0.6ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-02-05 22:18:00.412567"], ["created_at", "2018-02-12 22:18:00.412825"]]
+Started GET "/api/email_jobs?app_id=2&month=1&opened=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mEmailJob Load (0.8ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-01-13 22:18:00.424789"], ["created_at", "2018-02-12 22:18:00.424996"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&day=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mEmailJob Load (0.6ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-02-11 22:18:00.436377"], ["created_at", "2018-02-12 22:18:00.436438"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&week=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mEmailJob Load (0.6ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-02-05 22:18:00.447206"], ["created_at", "2018-02-12 22:18:00.447356"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&month=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-01-13 22:18:00.455909"], ["created_at", "2018-02-12 22:18:00.456011"]]
+Started GET "/api/captured_hooks?app_id=2&day=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mCapturedHook Load (0.6ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:18:00.465557"], ["created_at", "2018-02-12 22:18:00.465702"]]
+Started GET "/api/captured_hooks?app_id=2&week=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mCapturedHook Load (1.3ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:18:00.474927"], ["created_at", "2018-02-12 22:18:00.475046"]]
+Started GET "/api/captured_hooks?app_id=2&month=1" for ::1 at 2018-02-12 17:18:00 -0500
+  [1m[36mCapturedHook Load (0.4ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:18:00.484341"], ["created_at", "2018-02-12 22:18:00.484454"]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mApp Load (0.6ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users/2" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/apps?user_id=2" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mApp Load (0.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."user_id" = $1[0m  [["user_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_jobs?app_id=2&sent=1" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2[0m  [["app_id", 2], ["sent", 1]]
+Started GET "/api/email_jobs?app_id=2&opened=1" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mEmailJob Load (0.4ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2[0m  [["app_id", 2], ["opened", 1]]
+Started GET "/api/email_jobs?app_id=2&clicked=1" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mEmailJob Load (0.8ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2[0m  [["app_id", 2], ["clicked", 1]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mFunnel Load (0.4ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mFunnel Load (0.4ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_lists?app_id=2" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mEmailList Load (0.4ms)[0m  [1m[34mSELECT "email_lists".* FROM "email_lists" WHERE "email_lists"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_templates?app_id=2" for ::1 at 2018-02-12 17:18:15 -0500
+  [1m[36mEmailTemplate Load (0.4ms)[0m  [1m[34mSELECT "email_templates".* FROM "email_templates" WHERE "email_templates"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mApp Load (0.4ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users?id=2" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mSubscriber Load (0.5ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mApp Load (0.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/users/2" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started PUT "/api/users/2/?city=ARLINGTON+HEIGHTS&client_tags=104%2C116%2C135&first_name=Matt&last_name=Twardowski&state=IL&street_address=1718+N+MITCHELL+AVE&zip=60004" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/users?clientid=465" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."clientid" = $1[0m  [["clientid", 465]]
+Started GET "/api/apps?user_id=2" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mApp Load (0.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."user_id" = $1[0m  [["user_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_jobs?app_id=2&sent=1" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2[0m  [["app_id", 2], ["sent", 1]]
+Started GET "/api/email_jobs?app_id=2&opened=1" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2[0m  [["app_id", 2], ["opened", 1]]
+Started GET "/api/email_jobs?app_id=2&clicked=1" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2[0m  [["app_id", 2], ["clicked", 1]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mFunnel Load (0.6ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/subscribers?app_id=2" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mSubscriber Load (0.6ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/funnels?app_id=2" for ::1 at 2018-02-12 17:18:17 -0500
+  [1m[36mFunnel Load (0.5ms)[0m  [1m[34mSELECT "funnels".* FROM "funnels" WHERE "funnels"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_lists?app_id=2" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mEmailList Load (0.4ms)[0m  [1m[34mSELECT "email_lists".* FROM "email_lists" WHERE "email_lists"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/email_templates?app_id=2" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mEmailTemplate Load (0.4ms)[0m  [1m[34mSELECT "email_templates".* FROM "email_templates" WHERE "email_templates"."app_id" = $1[0m  [["app_id", 2]]
+Started GET "/api/apps?name=mailfunnelstesting.myshopify.com" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mApp Load (0.5ms)[0m  [1m[34mSELECT "apps".* FROM "apps" WHERE "apps"."name" = $1[0m  [["name", "mailfunnelstesting.myshopify.com"]]
+Started GET "/api/subscribers?app_id=2&day=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:18:18.523792"], ["created_at", "2018-02-12 22:18:18.523837"]]
+Started GET "/api/subscribers?app_id=2&week=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:18:18.532848"], ["created_at", "2018-02-12 22:18:18.532970"]]
+Started GET "/api/subscribers?app_id=2&month=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mSubscriber Load (0.4ms)[0m  [1m[34mSELECT "subscribers".* FROM "subscribers" WHERE "subscribers"."app_id" = $1 AND ("subscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:18:18.540137"], ["created_at", "2018-02-12 22:18:18.540249"]]
+Started GET "/api/unsubscribers?app_id=2&day=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mUnsubscriber Load (0.5ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:18:18.549066"], ["created_at", "2018-02-12 22:18:18.549161"]]
+Started GET "/api/unsubscribers?app_id=2&week=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mUnsubscriber Load (0.4ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:18:18.556762"], ["created_at", "2018-02-12 22:18:18.556864"]]
+Started GET "/api/unsubscribers?app_id=2&month=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mUnsubscriber Load (0.4ms)[0m  [1m[34mSELECT "unsubscribers".* FROM "unsubscribers" WHERE "unsubscribers"."app_id" = $1 AND ("unsubscribers"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:18:18.565708"], ["created_at", "2018-02-12 22:18:18.565853"]]
+Started GET "/api/email_jobs?app_id=2&day=1&sent=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-02-11 22:18:18.572790"], ["created_at", "2018-02-12 22:18:18.572867"]]
+Started GET "/api/email_jobs?app_id=2&sent=1&week=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-02-05 22:18:18.583431"], ["created_at", "2018-02-12 22:18:18.583539"]]
+Started GET "/api/email_jobs?app_id=2&month=1&sent=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mEmailJob Load (0.4ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."sent" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["sent", 1], ["created_at", "2018-01-13 22:18:18.590227"], ["created_at", "2018-02-12 22:18:18.590353"]]
+Started GET "/api/email_jobs?app_id=2&day=1&opened=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-02-11 22:18:18.598131"], ["created_at", "2018-02-12 22:18:18.598201"]]
+Started GET "/api/email_jobs?app_id=2&opened=1&week=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-02-05 22:18:18.604798"], ["created_at", "2018-02-12 22:18:18.604893"]]
+Started GET "/api/email_jobs?app_id=2&month=1&opened=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mEmailJob Load (1.0ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."opened" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["opened", 1], ["created_at", "2018-01-13 22:18:18.612563"], ["created_at", "2018-02-12 22:18:18.612674"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&day=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-02-11 22:18:18.620675"], ["created_at", "2018-02-12 22:18:18.620721"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&week=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mEmailJob Load (0.6ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-02-05 22:18:18.628412"], ["created_at", "2018-02-12 22:18:18.628585"]]
+Started GET "/api/email_jobs?app_id=2&clicked=1&month=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mEmailJob Load (0.5ms)[0m  [1m[34mSELECT "email_jobs".* FROM "email_jobs" WHERE "email_jobs"."app_id" = $1 AND "email_jobs"."clicked" = $2 AND ("email_jobs"."created_at" BETWEEN $3 AND $4)[0m  [["app_id", 2], ["clicked", 1], ["created_at", "2018-01-13 22:18:18.637982"], ["created_at", "2018-02-12 22:18:18.638081"]]
+Started GET "/api/captured_hooks?app_id=2&day=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mCapturedHook Load (0.4ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-11 22:18:18.651891"], ["created_at", "2018-02-12 22:18:18.651938"]]
+Started GET "/api/captured_hooks?app_id=2&week=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mCapturedHook Load (0.4ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-02-05 22:18:18.658642"], ["created_at", "2018-02-12 22:18:18.658750"]]
+Started GET "/api/captured_hooks?app_id=2&month=1" for ::1 at 2018-02-12 17:18:18 -0500
+  [1m[36mCapturedHook Load (0.5ms)[0m  [1m[34mSELECT "captured_hooks".* FROM "captured_hooks" WHERE "captured_hooks"."app_id" = $1 AND ("captured_hooks"."created_at" BETWEEN $2 AND $3)[0m  [["app_id", 2], ["created_at", "2018-01-13 22:18:18.666837"], ["created_at", "2018-02-12 22:18:18.666984"]]

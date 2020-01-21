@@ -1,0 +1,2 @@
+W, [2017-05-27T13:12:52.074944 #69055]  WARN -- : ** [Honeybadger] Unable to start Honeybadger -- api_key is missing or invalid. level=2 pid=69055
+W, [2017-11-17T16:48:30.268741 #64193]  WARN -- : ** [Honeybadger] Unable to start Honeybadger -- api_key is missing or invalid. level=2 pid=64193

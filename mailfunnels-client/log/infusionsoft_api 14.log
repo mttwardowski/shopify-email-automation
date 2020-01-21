@@ -1,0 +1,3 @@
+# Logfile created on 2018-04-04 22:18:47 -0500 by logger.rb/56815
+I, [2018-04-04T22:18:54.898418 #22425]  INFO -- : CALL: ContactService.findByEmail api_url: gv373.infusionsoft.com api_key:94c11c8a7a198e08f6ba3b58bf5d592a at:2018-04-04 22:18:54 -0500 args:["mttwardowski@gmail.com", [:ID, :Password]]
+I, [2018-04-04T22:18:55.349494 #22425]  INFO -- : RESULT: [{"ID"=>465, "Password"=>"matt1997"}]

@@ -1,0 +1,7 @@
+# Logfile created on 2017-05-27 13:12:52 -0500 by logger.rb/54362
+[05/27/17 13:12:52 -0500 Matts-MacBook-Pro.local (69055)] INFO : Attempting to start Scout Agent [2.1.24] on [Matts-MacBook-Pro.local]
+[05/27/17 13:12:52 -0500 Matts-MacBook-Pro.local (69055)] INFO : No configuration file loaded, and no configuration found in ENV. For assistance configuring Scout, visit http://help.apm.scoutapp.com/#configuration-options
+[05/27/17 13:12:52 -0500 Matts-MacBook-Pro.local (69055)] WARN : Monitoring isn't enabled for the [production] environment. Not starting agent
+[11/17/17 16:48:30 -0500 pal-nat186-83-240.itap.purdue.edu (64193)] INFO : Attempting to start Scout Agent [2.3.1] on [pal-nat186-83-240.itap.purdue.edu]
+[11/17/17 16:48:30 -0500 pal-nat186-83-240.itap.purdue.edu (64193)] INFO : No configuration file loaded, and no configuration found in ENV. For assistance configuring Scout, visit http://help.apm.scoutapp.com/#configuration-options
+[11/17/17 16:48:30 -0500 pal-nat186-83-240.itap.purdue.edu (64193)] WARN : Monitoring isn't enabled for the [production] environment. Not starting agent

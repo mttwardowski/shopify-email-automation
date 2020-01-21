@@ -1,0 +1,387 @@
+<% content_for :javascript do %>
+    <script type="text/javascript">
+
+    </script>
+
+
+
+    <%= javascript_include_tag 'triggers_manifest.js' %>
+    <%= stylesheet_link_tag 'dashboard.css' %>
+
+    <div class="hidden">
+      <input id="current_app_id" type="number" value="<%= @app.id %>"/>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="page-title">
+          <div class="title_left">
+            <div class="title_left">
+              <img class="mf_head_logo" src="mf_logos/mf_logo_text.png"/>
+              <h3><small class="mf_head_title">Triggers</small></h3>
+            </div>
+          </div>
+
+          <div class="title_right">
+            <button id="new_trigger_modal_btn" class="btn btn-primary btn-sm btn-border pull-right" type="button"><i class="fa fa-plus"></i> New Trigger</button>
+            <!--<button class="btn btn-primary btn-border pull-right" type="button" data-toggle="modal" data-target="#newTriggerModal"><i class="fa fa-plus"></i> New Trigger</button>-->
+            <button id="trigger_refresh_button" class="btn btn-primary btn-sm btn-border pull-right" style="margin-right: 5px;" type="button"><i class="fa fa-refresh"></i> Refresh</button>
+
+          </div>
+
+          <hr/>
+          <div class="clearfix"></div>
+
+        </div>
+      </div>
+    </div>
+
+    <hr class="fade-2"/>
+
+    <div class="row">
+
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Triggers</h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <!-- Triggers Table -->
+            <table id="triggers_table" class="table table-bordered text-center">
+
+              <!-- Triggers Table Header -->
+              <thead>
+              <tr>
+                <th class="text-center">Name</th>
+                <th class="text-center">Product</th>
+                <th class="text-center">Description</th>
+                <th class="text-center">Leads</th>
+                <th class="text-center"><i class="fa fa-wrench"></i></th>
+              </tr>
+              </thead>
+              <!-- END Hooks Table Header -->
+
+              <!-- Hooks Table BODY -->
+              <tbody>
+
+              <% if @triggers %>
+                  <% @triggers.each do |trigger| %>
+                      <tr>
+                        <td style="width:10%;"><%= trigger.name %></td>
+                        <td>
+                          <% begin %>
+                              <% if trigger.product_id %>
+                                  <%= ShopifyAPI::Product.find(trigger.product_id).title %>
+                              <% else %>
+                                  All Products
+                              <% end %>
+                          <% rescue => e%>
+                            <span class="text-danger">Uh oh, this product doesn't exist anymore!</span>
+                              <button type="button" class="btn btn-primary btn-xs btn-border resolve_trigger_info_button" data-id="<%= trigger.id %>">Resolve</button>
+
+                        <% end %>
+                        </td>
+                        <td style="width:50%;"><%= trigger.description %></td>
+                        <td style="width: 100px;"><%= trigger.num_triggered %></td>
+                        <td style="width: 50px;">
+                          <button type="button" class="btn btn-primary btn-sm btn-border view_trigger_info_button" data-id="<%= trigger.id %>"><i class="fa fa-plus"></i></button>
+                        </td>
+                      </tr>
+                  <% end %>
+              <% end %>
+              </tbody>
+              <!-- END Hooks Table BODY -->
+
+            </table>
+            <!-- END Hooks Table -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- START RESOLVE PRODUCT MODAL -->
+    <div id="trigger_product_resolve_modal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-md">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Resolve Trigger Product</h4>
+          </div>
+
+          <div class="modal-body">
+
+            <h5>This product no longer exists, please select a new product or choose any product to trigger on every product.</h5>
+            <br/>
+
+            <div class="row text-center">
+              <div class="col-xs-6">
+                <button id="resolve_all_products_button" type="button" class="btn btn-primary btn-block" data-id="">Any Product</button>
+              </div>
+              <div class="col-xs-6">
+                <button id="resolve_select_product_button" type="button" class="btn btn-primary btn-block" data-id="">Select Product</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- END RESOLVE PRODUCT MODAL -->
+
+
+    <div id="newTriggerModal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Create New Trigger</h4>
+          </div>
+
+          <form class="form-horizontal form-label-left">
+
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Trigger Name</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="trigger_name_input" type="text" class="form-control" placeholder="Trigger Name">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Trigger Description
+                </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <textarea id="trigger_description_input" class="form-control" rows="3" placeholder="Description For Trigger"></textarea>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Trigger Action</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="form-control" id="hook_list_select">
+                    <% @hookslist.each do |hl| %>
+                        <option value="<%= hl.id %>"><%= hl.name %></option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Product</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="product_list_select" type="number" class="hidden" value=""/>
+                  <input id="product_list_select_name" type="text" class="hidden" value=""/>
+                  <button id="new_trigger_product_select_btn" type="button" class="form-control mf_select_btn-primary"> Any Product</button>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button id="new_trigger_reset_btn" type="button" class="btn btn-primary">Reset</button>
+              <button id="new_trigger_submit_button" type="button" class="btn btn-success">Submit</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--View Trigger Info Modal Start-->
+    <div id="trigger_info_modal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Trigger Info</h4>
+          </div>
+
+          <div class="modal-body">
+            <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+              <div class="hidden">
+                <input id="current_subscriber_id" type="number" value="0" />
+              </div>
+
+              <div class="panel">
+                <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <h4 class="panel-title">Trigger Info</h4>
+                </a>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true">
+                  <div class="panel-body">
+                    <table class="table table-striped">
+                      <tbody>
+                      <tr>
+                        <th scope="row">Name:</th>
+                        <td id="view_trigger_name">Loading...</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Product:</th>
+                        <td id="view_trigger_product">Loading...</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Hits:</th>
+                        <td id="view_trigger_hits">Loading...</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Description:</th>
+                        <td id="view_trigger_description">Loading...</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!--START EMAILS SENT TO SUBSCRIBER-->
+              <div class="panel">
+                <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <h4 class="panel-title">Trigger Settings</h4>
+                </a>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
+                  <div class="panel-body">
+
+                    <div class="row text-center">
+                      <div class="col-xs-6">
+                        <button id="trigger_edit_button" type="button" class="btn btn-primary btn-block" data-id="">Edit</button>
+                      </div>
+                      <div class="col-xs-6">
+                        <button id="trigger_delete_button" type="button" class="btn btn-danger btn-block" data-id="">Delete</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--END EMAILS SENT TO SUBSCRIBER-->
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div id="trigger_confirm_delete_modal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-md">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Delete Trigger</h4>
+          </div>
+
+          <div class="modal-body">
+
+            <h4>Are you sure you want to delete <span id="trigger_delete_name"></span>?</h4>
+            <p>Deleting a trigger will remove all funnels that are linked to it.</p>
+            <p >There are <span class="text-bold text-danger" id="view_num_funnels">0</span> funnels linked to this trigger.</p>
+
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger btn-border" data-dismiss="modal">No</button>
+            <button id="confirm_trigger_delete_button" type="button" class="btn btn-success btn-border" data-id="">Yes</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div id="editTriggerModal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Edit Trigger</h4>
+          </div>
+
+          <form class="form-horizontal form-label-left">
+
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Trigger Name</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="edit_trigger_name_input" type="text" class="form-control" placeholder="Trigger Name">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Trigger Description
+                </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <textarea id="edit_trigger_description_input" class="form-control" rows="3" placeholder="Description For Trigger"></textarea>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Hook List</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="form-control" id="edit_hook_list_select">
+                    <% @hookslist.each do |hl| %>
+                        <option value="<%= hl.id %>"><%= hl.name %></option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Product</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="edit_product_list_select" type="number" class="hidden" value=""/>
+                  <input id="edit_product_list_name" type="text" class="hidden" value=""/>
+                  <button id="edit_product_select_btn" type="button" class="form-control mf_select_btn-primary"> Any Product</button>
+                </div>
+              </div>
+
+
+
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button id="edit_trigger_submit_button" type="button" class="btn btn-success" data-id="">Save</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+<% end %>
+
+
+

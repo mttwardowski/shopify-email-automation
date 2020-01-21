@@ -1,0 +1,584 @@
+<% content_for :javascript do %>
+    <script type="text/javascript">
+        ShopifyApp.ready(function () {
+            ShopifyApp.Bar.initialize({
+                icon: '/mailfunnels-logo.jpg'
+            });
+        });
+    </script>
+
+
+    <%= javascript_include_tag 'funnel_builder_manifest' %>
+    <%= stylesheet_link_tag 'components/jquery.flowchart.css' %>
+
+    <div class="hidden">
+      <input id="current_app_id" type="number" value="<%= @app.id %>"/>
+      <input id="current_funnel_id" type="number" value="<%= @funnel.id %>"/>
+      <input id="current_funnel_description" type="text" value="<%= @funnel.description %>"/>
+      <input id="current_trigger_id" type="number" value="<%= @trigger.id %>"/>
+      <input id="current_list_id" type="number" value="<%= @funnel.email_list_id %>"/>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="page-title">
+          <div class="title_left">
+            <img class="mf_head_logo" src="/mf_logos/mf_logo_text.png"/>
+            <h3><small class="mf_head_title">Funnel Editor: <%= @funnel.name %></small></h3>
+          </div>
+
+          <div class="title_right">
+            <button type="button" class="btn btn-border btn-sm btn-success pull-right" data-toggle="modal" data-target="#funnel_saved_modal">Save</button>
+            <% if !@funnel.active or @funnel.active === 0 %>
+                <button id="funnel_activate_button" type="button" class="btn btn-border btn-sm btn-primary pull-right" style="margin-right: 5px;">Make Active</button>
+            <% else %>
+                <button id="funnel_deactivate_button" type="button" class="btn btn-border btn-sm btn-danger pull-right" style="margin-right: 5px;">Make Inactive</button>
+            <% end %>
+            <a href="<%= root_url %>funnels" class="btn btn-primary btn-sm btn-border pull-right" style="margin-right: 5px;" ><i class="fa fa-chevron-left"></i> Back</a>
+          </div>
+
+          <hr/>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="fade-2"/>
+
+
+
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="row">
+
+
+          <!-- START RIGHT SIDE PANELS -->
+          <div class="col-xs-12 col-sm-3 pull-right">
+
+            <div class="x_panel tile">
+              <div class="x_title">
+                <h2 style="font-size: 20px;">Funnel Info</h2>
+                <div class="clearfix"></div>
+              </div>
+
+
+              <div class="x_content">
+                <h5><b>Funnel Name: </b> <%= @funnel.name %></h5>
+                <h5><b>Description: </b> <%= @funnel.description %></h5>
+                <h5><b>Trigger: </b> <%= @trigger.name %></h5>
+                <% if @trigger.product_id %>
+                    <h5><b>Product: </b> <%= ShopifyAPI::Product.find(@trigger.product_id).title %></h5>
+                <% end %>
+              </div>
+            </div>
+
+            <hr>
+            <!-- END Campaign Info Panel -->
+
+
+            <div class="x_panel tile">
+              <div class="x_title">
+                <h2 style="font-size: 20px;">Funnel Actions</h2>
+                <div class="clearfix"></div>
+              </div>
+              <hr class="fade-2"/>
+
+              <div class="x_content">
+                <button class="btn btn-block btn-sm btn-border btn-primary" data-toggle="modal" data-target="#edit_funnel_modal">Edit Funnel</button>
+                <button class="btn btn-block btn-sm btn-border btn-primary" id="create_button">Add Action</button>
+                <button class="btn btn-block btn-sm btn-border btn-success" id="preview_email_button">Preview Email</button>
+                <button class="btn btn-block btn-sm btn-border btn-success" id="view_selected_button" data-node="2">View Action Info</button>
+                <button class="btn btn-block btn-sm btn-border btn-success" id="edit_selected_button">Edit Action</button>
+                <button class="btn btn-block btn-sm btn-border btn-danger" id="delete_selected_button">Delete Action</button>
+              </div>
+            </div>
+
+            <hr>
+            <!-- END Job Actions Panel -->
+
+          </div>
+          <!-- END RIGHT SIDE PANELS -->
+
+          <!-- START RIGHT SIDE PANELS -->
+          <div class="col-xs-12 col-sm-9 pull-left">
+
+
+            <div class="x_panel tile">
+
+              <div class="x_content text-center" id="funnel_builder">
+
+              </div>
+            </div>
+
+          </div>
+          <!-- END RIGHT SIDE PANELS -->
+
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- NEW NODE MODAL -->
+    <div class="modal fade" id="modal_node_create" aria-labelledby="#modal_node_create">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Add Action</h4>
+          </div>
+
+          <form class="form-horizontal form-label-left">
+
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Action Label</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="new_node_label_input" type="text" class="form-control"  placeholder="Enter a label for the action"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Template
+                </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="form-control" id="new_node_email_template_select">
+                    <option value="">Select An Email Template To Add...</option>
+                        <option value="0">Create New Email Template...</option>
+                    <% @templates.each do |template| %>
+                        <option value="<%= template.id %>"><%= template.name %></option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Delay Time</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="new_node_delay_time_input" type="number" class="form-control"  placeholder="Delay Time"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Delay Unit</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="form-control" id="time_unit_select">
+                    <option value="1">Minutes</option>
+                    <option value="2">Hours</option>
+                    <option value="3">Days</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="reset" class="btn btn-primary">Reset</button>
+              <button id="new_node_submit_button" type="button" class="btn btn-success">Submit</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- END NODE MODAL -->
+
+    <!-- VIEW TEMPLATE MODAL -->
+    <div class="modal fade" id="view_template_modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Email Preview</h4>
+          </div>
+
+          <div class="modal-body">
+
+            <iframe id="mf-preview" style="width: 100%; min-height: 500px; border: none;">
+            </iframe>
+
+            <div class="clearfix"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- END TEMPLATE MODAL -->
+
+
+
+    <!-- VIEW NODE MODAL -->
+    <div class="modal fade" id="view_node_modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Funnel Action Info</h4>
+          </div>
+
+          <div class="modal-body">
+            <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+
+              <!-- START NODE GENERAL INFO -->
+              <div class="panel">
+                <a class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <h4 class="panel-title">General Info</h4>
+                </a>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne" aria-expanded="true">
+                  <div class="panel-body">
+                    <table class="table table-striped">
+                      <tbody>
+                      <tr>
+                        <th scope="row">Funnel Name:</th>
+                        <td id="view_node_funnel_name"><%= @funnel.name %></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Action Name:</th>
+                        <td id="view_node_name">Loading...</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Email Template:</th>
+                        <td id="view_node_email_template_name">Loading...</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Delay Time:</th>
+                        <td id="view_node_delay_time">Loading...</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- END NODE GENERAL INFO -->
+
+              <!-- START NODE STATISTICS -->
+              <div class="panel">
+                <a class="panel-heading collapsed" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <h4 class="panel-title">Statistics</h4>
+                </a>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
+                  <div class="panel-body">
+                    <table class="table table-striped">
+                      <tbody>
+                      <tr>
+                        <th scope="row">Total Emails:</th>
+                        <td id="view_node_total_emails">Loading...</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Emails Sent:</th>
+                        <td id="view_node_emails_sent">Loading...</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Emails Opened:</th>
+                        <td id="view_node_emails_opened">Loading...</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Emails Clicked:</th>
+                        <td id="view_node_emails_clicked">Loading...</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- END NODE STATISTICS -->
+
+              <!-- START NODE EMAIL SETTINGS -->
+              <div class="panel">
+                <a class="panel-heading collapsed" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <h4 class="panel-title">Email Info</h4>
+                </a>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
+                  <div class="panel-body">
+                    <table class="table table-striped">
+                      <tbody>
+                      <tr>
+                        <th scope="row">Email Template:</th>
+                        <td id="view_node_email_settings_template">Loading...</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Email Description:</th>
+                        <td id="view_node_email_description">Loading...</td>
+
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- END NODE EMAIL SETTINGS -->
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END VIEW NODE MODAL -->
+
+
+    <!-- START EDIT NODE MODAL -->
+    <div class="modal fade" id="modal_node_edit" aria-labelledby="#modal_node_edit">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Edit Node</h4>
+          </div>
+
+          <form class="form-horizontal form-label-left">
+
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Action Label</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="edit_node_label_input" type="text" class="form-control"  placeholder="Enter a label for the action"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Template
+                </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="form-control" id="edit_node_email_template_select">
+                    <option value="">Select An Email Template To Add...</option>
+                    <% @app.email_templates.each do |template| %>
+                        <option value="<%= template.id %>"><%= template.name %></option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Delay Time</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="edit_node_delay_time_input" type="number" class="form-control"  placeholder="Delay Time"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Delay Unit</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="form-control" id="edit_node_time_unit_select">
+                    <option value="1">Minutes</option>
+                    <option value="2">Hours</option>
+                    <option value="3">Days</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button id="edit_node_submit_button" type="button" class="btn btn-success">Save</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- END EDIT NODE MODAL -->
+
+    <!-- START FUNNEL SAVED MODAL -->
+    <div id="funnel_saved_modal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel2">Mailfunnels Notification</h4>
+          </div>
+          <div class="modal-body">
+            <h4 class="text-success">Funnel Saved!</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-border btn-sm btn-success">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END FUNNEL SAVED MODAL -->
+
+
+    <!-- START EDIT FUNNEL MODAL -->
+    <div id="edit_funnel_modal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Edit Funnel</h4>
+          </div>
+
+          <form class="form-horizontal form-label-left">
+
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Funnel Name</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="edit_funnel_name_input" type="text" class="form-control" value="<%= @funnel.name %>" placeholder="Name">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Funnel Description
+                </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <textarea id="edit_funnel_description_input" class="form-control" rows="3" placeholder="Description for funnel"></textarea>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Funnel Trigger</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="form-control" id="edit_funnel_trigger_select">
+                    <option value="0">Select Trigger for funnel</option>
+                    <% @app.triggers.each do |trigger| %>
+                        <option value="<%=trigger.id %>"><%= trigger.name %></option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email List</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="form-control" id="edit_funnel_email_list_select">
+                    <option value="0">Create New Email List</option>
+                    <% @app.email_lists.where(app_id: @app.id, active: 0).each do |list| %>
+                        <option value="<%= list.id %>"><%= list.name %></option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button id="edit_funnel_submit_button" type="button" class="btn btn-success">Submit</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <!-- END EDIT FUNNEL MODAL -->
+
+
+    <div id="new_email_template_modal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content col-xs-10 col-xs-offset-1">
+
+
+          <div class="hidden">
+            <input id="email_template_id" type="number" value=""/>
+          </div>
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Edit New Template</h4>
+          </div>
+
+          <form class="form-horizontal form-label-left">
+
+            <div class="modal-body" style="max-height: calc(100vh - 210px); overflow-y: auto;">
+
+              <div class="form-group" style="margin-left: -16%;">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Subject</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="new_email_subject_input" type="text" class="form-control" placeholder="Email Subject">
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-left: -16%;">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Styled</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <div id="theme_color_select" class="input-group">
+                    <input id="theme_color" type="text" value="#e01ab5" class="form-control" />
+                    <span class="input-group-addon"><i></i></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-left: -16%;">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Title</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="email_title_input" type="text" class="form-control" placeholder="Email Title">
+                </div>
+              </div>
+
+
+              <div class="form-group" style="margin-left: -16%;">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Show Button</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="form-control" id="button_select">
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div id="button_form_div" style="margin-left: -16%;">
+
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Button Text
+                  </label>
+                  <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input id="buttonTextInput" type="text" class="form-control" placeholder="Button Text">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Button URL
+                  </label>
+                  <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input id="buttonUrlInput" type="text"  class="form-control" placeholder="Button Url">
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-3">Content</label>
+                <div id="summernote" class="note-editable">
+
+
+                </div>
+              </div>
+
+
+            </div>
+
+
+
+
+            <div class="modal-footer">
+              <button id="new_template_submit_button" type="button" class="btn btn-success">Submit</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+
+<% end %>

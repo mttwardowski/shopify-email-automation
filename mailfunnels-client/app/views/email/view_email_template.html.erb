@@ -1,0 +1,162 @@
+
+<% content_for :javascript do %>
+    <script type="text/javascript">
+        ShopifyApp.ready(function () {
+            ShopifyApp.Bar.initialize({
+                icon: '/mailfunnels-logo.jpg'
+            });
+        });
+    </script>
+
+    <%= javascript_include_tag 'pages/emailtemplates.js' %>
+    <%= stylesheet_link_tag 'EmailTemplate/simple.css' %>
+
+
+    <div class="hidden">
+      <input id="current_app_id" type="number" value="<%= @app.id %>"/>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="page-title email_info">
+
+          <div class="title_left">
+            <img class="mf_head_logo" src="/mf_logos/mf_logo_text.png"/>
+            <h3><small class="mf_head_title"><%= @template.name %></small></h3>
+          </div>
+
+          <div class="title_right">
+            <a href="<%= root_url %>edit_email_template/<%= @template.id %>" class="btn btn-sm btn-border btn-success pull-right">Edit</a>
+            <a id="send_test_email" data-toggle="modal" data-target="#test_email_modal" class="btn btn-sm btn-border btn-success pull-right m-r-5">Send Test Email</a>
+
+            <a href="<%= root_url %>email_templates" class="btn btn-primary btn-sm btn-border pull-right m-r-5"><i class="fa fa-chevron-left"></i> Back</a>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <hr class="fade-2"/>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+
+        <!-- START MESSAGE VIEW -->
+        <!-- ~~~~~~~~~~~~~~~~~~ -->
+        <div class="row email_content">
+
+          <table class="body-wrap">
+            <tr>
+              <td class="container">
+                <table>
+                  <tr>
+                    <td align="center" style="background: <%= @template.color %>;" class="email_title">
+                      <h1 class="email_template"><%= @template.email_title %></h1>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="content mf_body">
+
+                      <% if @template.greet_use_default === 1 %>
+                          <h2>Hi [Customer Name],</h2>
+                      <% elsif @template.greet_before_cust_name == 1 %>
+                          <% if @template.greet_content %>
+                              <h2>[Customer Name]<%= @template.greet_content %></h2>
+                          <% else %>
+                              <h2>[Customer Name]</h2>
+                          <% end %>
+                      <% elsif @template.greet_after_cust_name == 1 %>
+                          <% if @template.greet_content %>
+                              <h2><%= @template.greet_content %>[Customer Name]</h2>
+                          <% else %>
+                              <h2>[Customer Name]</h2>
+                          <% end %>
+                      <% end %>
+
+                      <% if @template.email_content %>
+                        <pre><%= @template.email_content.html_safe %></pre>
+                      <% end %>
+
+                      <table>
+                        <tr>
+                          <td align="center">
+                            <% if @template.has_button %>
+                                <p>
+                                  <a href="<%= @template.button_url %>" style="background: <%= @template.color %>;" class="button"> <%= @template.button_text %> </a>
+                                </p>
+                            <% end %>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+
+
+            <tr>
+              <td class="container email_footer">
+                <!--Need to include unsubscribe link-->
+                <table>
+                  <tr>
+                    <td class="content email_footer" align="center">
+                      <p class="mf_em_footer_unsub"><a href= "#">Unsubscribe</a></p>
+
+
+                      <div class="mf_em_footer_address">
+                        <% if @app.foot_use_bill_add === 0 %>
+                            <p><%= @app.foot_street %></p>
+                            <p><%= @app.foot_city %>, <%= @app.foot_state %> <%= @app.foot_zip %></p>
+                        <% else %>
+                            <p><%= @user.street_address %></p>
+                            <p><%= @user.city %>, <%= @user.state %> <%= @user.zip %></p>
+                        <% end %>
+                      </div>
+
+
+                      <% if @app.show_mf_powered === 1 %>
+                          <p class="mf_em_footer_power_by">Powered by MailFunnels</p>
+                      <% end %>
+
+
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!-- ~~~~~~~~~~~~~~~~ -->
+        <!-- END MESSAGE VIEW -->
+      </div>
+    </div>
+
+
+    <div id="test_email_modal" class="modal fade">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Send Test Email</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="form-group">
+              <input id="mf_current_template_id_holder" type="hidden" value="<%= @template.id %>">
+              <label>Send Email To:</label>
+              <input id="mf_test_email_input" class="form-control" type="email" placeholder="Email (Ex. name@mailfunnels.com)">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button id="mf_test_email_submit" class="btn btn-primary note-image-btn">Send Test</button></div>
+        </div>
+      </div>
+    </div>
+
+
+<% end %>

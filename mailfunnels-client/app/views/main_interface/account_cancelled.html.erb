@@ -1,0 +1,24 @@
+<% content_for :error do %>
+    <script type="text/javascript">
+        ShopifyApp.ready(function () {
+            ShopifyApp.Bar.initialize({
+                icon: '/mailfunnels-logo.jpg'
+            });
+        });
+    </script>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="text-center">
+          <h1 class="mf_error">Account Closed!</h1>
+          <h2>Sorry to see you go.</h2>
+          <p>Your account has been cancelled, if you did not mean to do this please contact support.</p>
+        </div>
+      </div>
+    </div>
+
+
+<% end %>
+
+
+

@@ -1,0 +1,71 @@
+{:uriI"’file://app/assets/javascripts/contentbuilder/icons/LICENSE.txt?type=text/plain&id=d496c069f9e05413628c2e3daa1a43d96f010b6de8bb3a886bc46b471acd155b:ET:load_pathI"app/assets/javascripts;T:filenameI"<app/assets/javascripts/contentbuilder/icons/LICENSE.txt;T:	nameI"!contentbuilder/icons/LICENSE;T:logical_pathI"%contentbuilder/icons/LICENSE.txt;T:content_typeI"text/plain;T:sourceI"òFont license info
+
+
+## Font Awesome
+
+   Copyright (C) 2012 by Dave Gandy
+
+   Author:    Dave Gandy
+   License:   SIL ()
+   Homepage:  http://fortawesome.github.com/Font-Awesome/
+
+
+## MFG Labs
+
+   Copyright (C) 2012 by Daniel Bruce
+
+   Author:    MFG Labs
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://www.mfglabs.com/
+
+
+## Elusive
+
+   Copyright (C) 2013 by Aristeides Stathopoulos
+
+   Author:    Aristeides Stathopoulos
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://aristeides.com/
+
+
+## Entypo
+
+   Copyright (C) 2012 by Daniel Bruce
+
+   Author:    Daniel Bruce
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://www.entypo.com
+
+
+## Fontelico
+
+   Copyright (C) 2012 by Fontello project
+
+   Author:    Crowdsourced, for Fontello project
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://fontello.com
+
+
+## Modern Pictograms
+
+   Copyright (c) 2012 by John Caserta. All rights reserved.
+
+   Author:    John Caserta
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://thedesignoffice.org/project/modern-pictograms/
+
+
+## Typicons
+
+   (c) Stephen Hutchings 2012
+
+   Author:    Stephen Hutchings
+   License:   SIL (http://scripts.sil.org/OFL)
+   Homepage:  http://typicons.com/
+
+
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"4processors:type=text/plain&file_type=text/plain;TTI"Jfile-digest://app/assets/javascripts/contentbuilder/icons/LICENSE.txt;TTF:charsetI"
+utf-8;F:digest"%¨Ö:;D­Ó	a…#Bñ¤rÄÕsø!l„gþõCeÛ:lengthiò:dependencies_digest"%¹CÌóPøf“Å|—Tn¯÷iW”é¿E]?"ÐŸ·nË:idI"Ed496c069f9e05413628c2e3daa1a43d96f010b6de8bb3a886bc46b471acd155b;F:
+mtimel+$ÝmU

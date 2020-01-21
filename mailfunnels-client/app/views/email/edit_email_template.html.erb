@@ -1,0 +1,318 @@
+<% content_for :javascript do %>
+    <script type="text/javascript">
+        ShopifyApp.ready(function () {
+            ShopifyApp.Bar.initialize({
+                icon: '/mailfunnels-logo.jpg'
+            });
+        });
+    </script>
+
+    <%= javascript_include_tag 'pages/editemailtemplate.js' %>
+    <%= stylesheet_link_tag 'EmailTemplate/simple.css' %>
+
+    <style>
+      .vcenter {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+      }
+      .abandoned_text_warning{
+        font-size: 10px;
+        font-style: italic;
+        color: red;
+      }
+    </style>
+
+
+    <div class="hidden">
+      <input id="current_template_id" type="number" value="<%= @template.id %>"/>
+      <input id="current_content_value" type="text" value="<%= @template.email_content %>"/>
+      <input id="current_color_value" type="text" value="<%= @template.color %>"/>
+      <% if @template.has_button %>
+          <input id="show_button_value" type="number" value="1"/>
+      <% else %>
+          <input id="show_button_value" type="number" value="0"/>
+      <% end %>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="page-title">
+          <div class="title_left">
+            <img class="mf_head_logo" src="/mf_logos/mf_logo_text.png"/>
+            <h3><small class="mf_head_title">Edit <%= @template.name %></small></h3>
+          </div>
+
+          <div class="title_right">
+            <button id="email_list_submit_button" type="button" class="btn btn-border btn-sm btn-success pull-right">Save</button>
+            <a href="<%= root_url %>email_templates" class="btn btn-primary btn-sm btn-border pull-right" style="margin-right: 5px;"><i class="fa fa-chevron-left"></i> Back</a>
+          </div>
+
+          <hr/>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="fade-2"/>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+
+        <!--Start EmailEdit div-->
+        <div class="col-xs-12 col-md-4">
+
+
+          <div class="col-xs-12">
+
+            <form class="form-horizontal form-label-left">
+
+              <h4 class="mf_section_header">General Options</h4>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Subject</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="email_subject_input" type="text" value="<%= @template.email_subject %>" class="form-control" placeholder="Email Subject">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Color</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <div id="theme_color_select" class="input-group">
+                    <input id="theme_color" type="text" value="<%= @template.color %>" class="form-control" />
+                    <span class="input-group-addon"><i></i></span>
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="mf_section_header">Header Options</h4>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Title</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="emailTitleInput" type="text" value="<%= @template.email_title %>" class="form-control" placeholder="Email Title">
+                </div>
+              </div>
+
+              <h4 class="mf_section_header">Body Options</h4>
+
+              <div class="form-group">
+                <div class="col-xs-12 col-md-9 col-md-offset-3 vcenter m-b-5">
+                  <label for="mf_greet_default"><input type="checkbox" value="<%= @template.greet_use_default %>" id="mf_greet_default" /><span></span> Use Default Greeting</label>
+                </div>
+              </div>
+
+              <div id="mf_greet_div" class="hidden">
+
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Greeting</label>
+                  <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input id="mf_greet_content" type="text" value="<%= @template.greet_content %>" class="form-control" placeholder="Greeting Content">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-xs-12 col-md-9 col-md-offset-3 vcenter m-b-5">
+                    <label for="mf_greet_before_cust_name"><input type="checkbox" value="<%= @template.greet_before_cust_name%>" id="mf_greet_before_cust_name" /><span></span> Add Customer Name At Start</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-xs-12 col-md-9 col-md-offset-3 vcenter m-b-5">
+                    <label for="mf_greet_after_cust_name"><input type="checkbox" value="<%= @template.greet_after_cust_name %>" id="mf_greet_after_cust_name" /><span></span> Add Customer Name At End</label>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <h4 class="mf_section_header">Link Options</h4>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Add Link</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <select class="form-control select" id="button_select">
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div id="button_forms_div">
+
+
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Button Text
+                  </label>
+                  <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input id="buttonTextInput" type="text" value="<%= @template.button_text %>" class="form-control" placeholder="Button Text">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Button URL
+                  </label>
+                  <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input id="buttonUrlInput" type="text" value="<%= @template.button_url %>" class="form-control" placeholder="Button Url">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-xs-12 col-md-9 col-md-offset-3 vcenter m-b-5">
+                    <label for="checkout_url_select"><input type="checkbox" value="<%= @template.has_checkout_url %>" id="checkout_url_select" /><span></span> Abandoned Checkout Url</label>
+                  </div>
+                  <div id="abandoned_text" class="row">
+                    <div class="col-xs-12 text-center">
+                      <p class="abandoned_text_warning">Only use this for funnels with abandoned checkout triggers</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+        <!-- START EMAIL PREVIEW -->
+        <!-- ~~~~~~~~~~~~~~~~~~~ -->
+        <div class="col-xs-12 col-md-8">
+          <div class="email_content">
+
+            <table class="body-wrap">
+              <tr>
+                <td class="container">
+
+                  <table>
+                    <tr>
+                      <td id="preview_header" align="center" style="background: <%= @template.color %>;" class="email_title">
+
+                        <h1 id="printEmailTitle" class="email_template"></h1>
+
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="content">
+
+
+                        <h2 id="mf_preview_def_greet" class="hidden">Hi [Customer Name],</h2>
+
+                        <h2 id="mf_preview_greet"><span id="preview_greet_before">[Customer Name]</span><span id="preview_greet_content"><%= @template.greet_content %></span><span id="preview_greet_after">[Customer Name]</span></h2>
+
+                        <div id="email_summernote_cont">
+                          <div id="summernote"></div>
+                        </div>
+
+                        <table>
+                          <tr>
+                            <td align="center">
+                              <div id="preview_buttons_div">
+                                <p>
+                                  <a href="#" class="button" style="background: <%= @template.color %>;" id="printButtonText"></a>
+                                </p>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="container email_footer">
+
+                  <!--Need to include unsubscribe link-->
+                  <table>
+                    <tr>
+                      <td class="content email_footer" align="center">
+
+                        <p class="mf_em_footer_unsub"><a href= "#">Unsubscribe</a></p>
+
+
+                        <div class="mf_em_footer_address">
+                          <% if @app.foot_use_bill_add === 0 %>
+                              <p><%= @app.foot_street %></p>
+                              <p><%= @app.foot_city %>, <%= @app.foot_state %> <%= @app.foot_zip %></p>
+                          <% else %>
+                              <p><%= @user.street_address %></p>
+                              <p><%= @user.city %>, <%= @user.state %> <%= @user.zip %></p>
+                          <% end %>
+                        </div>
+
+
+                        <% if @app.show_mf_powered === 1 %>
+                            <p class="mf_em_footer_power_by">Powered by MailFunnels</p>
+                        <% end %>
+
+
+                      </td>
+                    </tr>
+                  </table>
+
+                </td>
+              </tr>
+
+            </table>
+
+          </div>
+        </div>
+        <!-- ~~~~~~~~~~~~~~~~~ -->
+        <!-- END EMAIL PREVIEW -->
+
+      </div>
+    </div>
+
+
+    <div id="email_template_saved_modal" class="modal fade bs-example-modal-sm" >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel2">Mailfunnels Notification</h4>
+          </div>
+          <div class="modal-body">
+            <h4 class="text-success">Email Template Saved!</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-border btn-sm btn-success">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mf_email_hyperlink_modal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <h4 class="modal-title">Insert Hyperlink</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="form-group">
+              <label>Text to Display:</label>
+              <input id="mf_email_hyperlink_text" class="form-control" type="text">
+            </div>
+
+            <div class="form-group">
+              <label>Link URL:</label>
+              <input id="mf_email_hyperlink_input" class="form-control" type="text">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button id="mf_email_hyperlink_submit" class="btn btn-primary note-image-btn">Insert Hyperlink</button></div>
+        </div>
+      </div>
+    </div>
+
+
+<% end %>

@@ -1,0 +1,193 @@
+Started POST "/fbapi_read" for ::1 at 2017-02-23 01:19:09 -0500
+Processing by FunnelBuilderController#api_read as JSON
+  Parameters: {"job_id"=>"155", "authenticity_token"=>"yggrrPTw9e0tusNC7HIuMUStJMDEZ/kBeA1NRUVKB9HnfGDEzxPPQrORC2c+EM1WS3dr2y3th+igu3XEXzaWyw=="}
+Completed 500  in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (795: unexpected token at 'queued'):
+  
+app/controllers/funnel_builder_controller.rb:15:in `api_read'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (0.5ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (49.9ms)
+Started GET "/?hmac=11df320a3f258a3b26ff0c45f6521effc120283fb978d7a4769baa90b2b0a294&protocol=https%3A%2F%2F&shop=bluehelmet-dev.myshopify.com&timestamp=1487830759" for ::1 at 2017-02-23 01:19:20 -0500
+Processing by MainInterfaceController#index as HTML
+  Parameters: {"hmac"=>"11df320a3f258a3b26ff0c45f6521effc120283fb978d7a4769baa90b2b0a294", "protocol"=>"https://", "shop"=>"bluehelmet-dev.myshopify.com", "timestamp"=>"1487830759"}
+  [1m[36mShop Load (0.3ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main_interface/index.html.erb within layouts/embedded_app
+  Rendered main_interface/_campaign_select.html.erb (0.5ms)
+  Rendered main_interface/index.html.erb within layouts/embedded_app (194.9ms)
+Completed 200 OK in 260ms (Views: 225.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/funnel/22" for ::1 at 2017-02-23 01:19:23 -0500
+Processing by FunnelBuilderController#index as HTML
+  Parameters: {"campaign_id"=>"22"}
+  Rendering funnel_builder/index.html.erb within layouts/application
+  Rendered main_interface/_email_list_select.html.erb (0.5ms)
+  Rendered funnel_builder/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 118ms (Views: 53.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/fbapi_index" for ::1 at 2017-02-23 01:19:23 -0500
+Processing by FunnelBuilderController#api_index as JSON
+  Parameters: {"width"=>"1120", "app_id"=>"1", "campaign_id"=>"22", "CSRF"=>"dm1RMBvwrAnBiEf1IId/jzpprqGqT9cJ3/hdnb/jnGtbGRpYIBOWpl+jj9Dy5ZzoNbPhukPFqeAHTmUcpZ8NcQ==", "authenticity_token"=>"dm1RMBvwrAnBiEf1IId/jzpprqGqT9cJ3/hdnb/jnGtbGRpYIBOWpl+jj9Dy5ZzoNbPhukPFqeAHTmUcpZ8NcQ=="}
+Completed 200 OK in 70ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/fbapi_read" for ::1 at 2017-02-23 01:19:24 -0500
+Processing by FunnelBuilderController#api_read as JSON
+  Parameters: {"job_id"=>"155", "authenticity_token"=>"dm1RMBvwrAnBiEf1IId/jzpprqGqT9cJ3/hdnb/jnGtbGRpYIBOWpl+jj9Dy5ZzoNbPhukPFqeAHTmUcpZ8NcQ=="}
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?hmac=beb8574fbf3528508857b1add895209d575d45d7bf1148da74c99f28e790cb4b&protocol=https%3A%2F%2F&shop=bluehelmet-dev.myshopify.com&timestamp=1487831277" for ::1 at 2017-02-23 01:27:58 -0500
+Processing by MainInterfaceController#index as HTML
+  Parameters: {"hmac"=>"beb8574fbf3528508857b1add895209d575d45d7bf1148da74c99f28e790cb4b", "protocol"=>"https://", "shop"=>"bluehelmet-dev.myshopify.com", "timestamp"=>"1487831277"}
+  [1m[36mShop Load (0.6ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main_interface/index.html.erb within layouts/embedded_app
+  Rendered main_interface/_campaign_select.html.erb (0.5ms)
+  Rendered main_interface/index.html.erb within layouts/embedded_app (209.8ms)
+Completed 200 OK in 277ms (Views: 248.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/funnel/22" for ::1 at 2017-02-23 01:28:01 -0500
+Processing by FunnelBuilderController#index as HTML
+  Parameters: {"campaign_id"=>"22"}
+  Rendering funnel_builder/index.html.erb within layouts/application
+  Rendered main_interface/_email_list_select.html.erb (0.5ms)
+  Rendered funnel_builder/index.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 154ms (Views: 89.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/pages/campaign_funnel_builder.self-476aad081d80abfa5bc7c46ca23fa6e27831e7acafceec27ef90aefbe44ea4ef.js?body=1" for ::1 at 2017-02-23 01:28:01 -0500
+Started POST "/fbapi_index" for ::1 at 2017-02-23 01:28:01 -0500
+Processing by FunnelBuilderController#api_index as JSON
+  Parameters: {"width"=>"1120", "app_id"=>"1", "campaign_id"=>"22", "CSRF"=>"0on09IV84vq9Sug+qHKOucHgMZB9RGulbQv8cGq6u/n//b+cvp/YVSNhIBt6EG3ezjp+i5TOFUy1vcTxcMYq4w==", "authenticity_token"=>"0on09IV84vq9Sug+qHKOucHgMZB9RGulbQv8cGq6u/n//b+cvp/YVSNhIBt6EG3ezjp+i5TOFUy1vcTxcMYq4w=="}
+Completed 200 OK in 62ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/fbapi_read" for ::1 at 2017-02-23 01:28:03 -0500
+Processing by FunnelBuilderController#api_read as JSON
+  Parameters: {"job_id"=>"155", "authenticity_token"=>"0on09IV84vq9Sug+qHKOucHgMZB9RGulbQv8cGq6u/n//b+cvp/YVSNhIBt6EG3ezjp+i5TOFUy1vcTxcMYq4w=="}
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?hmac=83df7b1a3dc5fabb8636009d66cb6e3ee0a95647d3e9323bffb8ac869ab9582c&protocol=https%3A%2F%2F&shop=bluehelmet-dev.myshopify.com&timestamp=1487831301" for ::1 at 2017-02-23 01:28:22 -0500
+Processing by MainInterfaceController#index as HTML
+  Parameters: {"hmac"=>"83df7b1a3dc5fabb8636009d66cb6e3ee0a95647d3e9323bffb8ac869ab9582c", "protocol"=>"https://", "shop"=>"bluehelmet-dev.myshopify.com", "timestamp"=>"1487831301"}
+  [1m[36mShop Load (0.4ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main_interface/index.html.erb within layouts/embedded_app
+  Rendered main_interface/_campaign_select.html.erb (0.6ms)
+  Rendered main_interface/index.html.erb within layouts/embedded_app (212.1ms)
+Completed 200 OK in 277ms (Views: 252.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/funnel/22" for ::1 at 2017-02-23 01:28:24 -0500
+Processing by FunnelBuilderController#index as HTML
+  Parameters: {"campaign_id"=>"22"}
+  Rendering funnel_builder/index.html.erb within layouts/application
+  Rendered main_interface/_email_list_select.html.erb (0.5ms)
+  Rendered funnel_builder/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 121ms (Views: 55.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/pages/campaign_funnel_builder.self-ea45ee06f9e5e97aa72853522eff2eef1935b4e41195e3c350e00e9c46cb4a58.js?body=1" for ::1 at 2017-02-23 01:28:25 -0500
+Started POST "/fbapi_index" for ::1 at 2017-02-23 01:28:25 -0500
+Processing by FunnelBuilderController#api_index as JSON
+  Parameters: {"width"=>"1120", "app_id"=>"1", "campaign_id"=>"22", "CSRF"=>"5Xt1B62LMX5lc7e34eT0DV0L+YGCSFEvEgdTSDGX/QHIDz5vlmgL0ftYf5IzhhdqUtG2mmvCL8bKsWvJK+tsGw==", "authenticity_token"=>"5Xt1B62LMX5lc7e34eT0DV0L+YGCSFEvEgdTSDGX/QHIDz5vlmgL0ftYf5IzhhdqUtG2mmvCL8bKsWvJK+tsGw=="}
+Completed 200 OK in 59ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/fbapi_read" for ::1 at 2017-02-23 01:28:26 -0500
+Processing by FunnelBuilderController#api_read as JSON
+  Parameters: {"job_id"=>"155", "authenticity_token"=>"5Xt1B62LMX5lc7e34eT0DV0L+YGCSFEvEgdTSDGX/QHIDz5vlmgL0ftYf5IzhhdqUtG2mmvCL8bKsWvJK+tsGw=="}
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-02-23 01:33:48 -0500
+Processing by MainInterfaceController#index as HTML
+  [1m[36mShop Load (0.2ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main_interface/index.html.erb within layouts/embedded_app
+  Rendered main_interface/_campaign_select.html.erb (0.6ms)
+  Rendered main_interface/index.html.erb within layouts/embedded_app (180.4ms)
+Completed 200 OK in 247ms (Views: 214.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lists" for ::1 at 2017-02-23 01:33:49 -0500
+Processing by EmailController#lists as HTML
+  Rendering email/lists.html.erb within layouts/application
+  [1m[36mMailFunnelConfig Load (2.5ms)[0m  [1m[34mSELECT  "mail_funnel_configs".* FROM "mail_funnel_configs" WHERE "mail_funnel_configs"."name" = $1 ORDER BY "mail_funnel_configs"."id" ASC LIMIT $2[0m  [["name", "server_url"], ["LIMIT", 1]]
+Internal URL: http://localhost:3000/create_list
+External URL: http://localhost:3001/email_lists
+  Rendered email/_new_list_form.html.erb (19.9ms)
+  Rendered email/lists.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 85ms (Views: 51.9ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/funnel" for ::1 at 2017-02-23 01:33:51 -0500
+Processing by FunnelBuilderController#index as HTML
+  Rendering funnel_builder/fb_campaign_select.html.erb within layouts/application
+  Rendered funnel_builder/_campaign_select.html.erb (0.4ms)
+  Rendered funnel_builder/fb_campaign_select.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 67ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-02-23 01:33:52 -0500
+Processing by MainInterfaceController#index as HTML
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main_interface/index.html.erb within layouts/embedded_app
+  Rendered main_interface/_campaign_select.html.erb (0.5ms)
+  Rendered main_interface/index.html.erb within layouts/embedded_app (204.8ms)
+Completed 200 OK in 279ms (Views: 240.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/funnel" for ::1 at 2017-02-23 01:33:54 -0500
+Processing by FunnelBuilderController#index as HTML
+  Rendering funnel_builder/fb_campaign_select.html.erb within layouts/application
+  Rendered funnel_builder/_campaign_select.html.erb (0.6ms)
+  Rendered funnel_builder/fb_campaign_select.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 82ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funnel/24" for ::1 at 2017-02-23 01:33:57 -0500
+Processing by FunnelBuilderController#index as HTML
+  Parameters: {"campaign_id"=>"24"}
+  Rendering funnel_builder/index.html.erb within layouts/application
+  Rendered main_interface/_email_list_select.html.erb (0.4ms)
+  Rendered funnel_builder/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 113ms (Views: 54.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/pages/campaign_funnel_builder.self-b13fe99bcaab9f55f14b85b2abaea9317bdc6444e9f62cb6bc8bf6c784c32fee.js?body=1" for ::1 at 2017-02-23 01:33:57 -0500
+Started POST "/fbapi_index" for ::1 at 2017-02-23 01:33:57 -0500
+Processing by FunnelBuilderController#api_index as JSON
+  Parameters: {"width"=>"1120", "app_id"=>"1", "campaign_id"=>"24", "CSRF"=>"Ye3wga/r1kPWW41ViWEO5xUNt8dKmRO3Q85L825cyh5MmbvplAjs7EhwRXBbA+2AGtf43KMTbV6beHNydCBbBA==", "authenticity_token"=>"Ye3wga/r1kPWW41ViWEO5xUNt8dKmRO3Q85L825cyh5MmbvplAjs7EhwRXBbA+2AGtf43KMTbV6beHNydCBbBA=="}
+Completed 200 OK in 52ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-02-23 01:34:23 -0500
+Processing by MainInterfaceController#index as HTML
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main_interface/index.html.erb within layouts/embedded_app
+  Rendered main_interface/_campaign_select.html.erb (0.5ms)
+  Rendered main_interface/index.html.erb within layouts/embedded_app (182.3ms)
+Completed 200 OK in 248ms (Views: 219.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/?hmac=98f0012ce695e5c16c79f586985c35986c93e5211614deae74194a28515e3cfa&protocol=https%3A%2F%2F&shop=bluehelmet-dev.myshopify.com&timestamp=1487831666" for ::1 at 2017-02-23 01:34:27 -0500
+Processing by MainInterfaceController#index as HTML
+  Parameters: {"hmac"=>"98f0012ce695e5c16c79f586985c35986c93e5211614deae74194a28515e3cfa", "protocol"=>"https://", "shop"=>"bluehelmet-dev.myshopify.com", "timestamp"=>"1487831666"}
+  [1m[36mShop Load (0.5ms)[0m  [1m[34mSELECT  "shops".* FROM "shops" WHERE "shops"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering main_interface/index.html.erb within layouts/embedded_app
+  Rendered main_interface/_campaign_select.html.erb (0.8ms)
+  Rendered main_interface/index.html.erb within layouts/embedded_app (217.5ms)
+Completed 200 OK in 281ms (Views: 254.8ms | ActiveRecord: 0.5ms)
+
+

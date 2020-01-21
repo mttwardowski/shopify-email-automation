@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MailFunnels | Login</title>
+
+  <%= stylesheet_link_tag 'application', :media => 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'pages/login.js' %>
+
+  <script>
+      window.intercomSettings = {
+          app_id: "a0xeo67y"
+      };
+  </script>
+  <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/a0xeo67y';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+
+</head>
+<body class="login" style="background-image: url(/assets/galaxy.png);">
+
+<div>
+
+  <a class="hiddenanchor" id="signup"></a>
+  <a class="hiddenanchor" id="signin"></a>
+  <a class="hiddenanchor" id="resetpass"></a>
+
+  <div class="login_wrapper">
+
+    <div class="animate form login_form">
+      <section class="login_content">
+
+        <div style="margin-bottom: 100px;">
+          <%= image_tag("mailfunnels-logo.png", :alt => "Mailfunnels Logo") %>
+        </div>
+
+        <form>
+          <h2 class="mailfunnels_login">MailFunnels Login</h2>
+
+
+          <p id="invalid_login_credentials_message" class="text-danger">Invalid Username/Password Combo</p>
+          <p id="server_error_message" class="text-danger">Server Error</p>
+
+          <div>
+            <input id="mf_login_username_input" type="text" class="form-control" placeholder="Email" required=""/>
+          </div>
+          <div>
+            <input id="mf_login_password_input" type="password" class="form-control" placeholder="Password" required=""/>
+          </div>
+          <div>
+            <button id="mf_login_submit_button" class="btn btn-primary" type="button">Log in</button>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="separator">
+            <div class="clearfix"></div>
+            <br/>
+
+            <div>
+              <a class="forgot_password" href="#resetpass">Forgot Password?</a>
+              <!--<h1 style="margin-top: 20px;"><i class="fa fa-envelope"></i> MailFunnels</h1>-->
+              <!--<p>©2017 All Rights Reserved.</p>-->
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <div class="full-width footer">
+        <div class="row text-center footer_text">
+          <h1 style="margin-top: 20px;"><i class="fa fa-envelope"></i> MailFunnels</h1>
+          <p>©2017 All Rights Reserved.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="register" class="animate form registration_form">
+      <section class="login_content">
+        <form class="form-horizontal form-label-right">
+          <h1>Account Setup</h1>
+
+          <p style="color: white;">In order to login to MailFunnels, please enter your shopify domain below.</p>
+          <p style="color: white;">Remember to include hyphens in your shopify store domain.</p>
+
+          <div class="form-group">
+
+            <div class="col-md-9 col-sm-9 col-xs-9">
+              <input id="mf_shopify_domain_input" type="text" class="form-control" placeholder="Shopify Domain" required=""/>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+              <label class="control-label" style="color: white;">.myshopify.com</label>
+            </div>
+          </div>
+          <div>
+            <button id="mf_auth_setup_submit_button" type="button" class="btn btn-default" data-id="">Submit</button>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="separator">
+            <div class="clearfix"></div>
+            <br/>
+
+            <div>
+              <h1><i class="fa fa-envelope"></i> MailFunnels</h1>
+              <p>©2017 All Rights Reserved.</p>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div id="resetpass" class="animate form reset-pass-form">
+      <section class="login_content">
+
+        <div style="margin-bottom: 100px;">
+          <%= image_tag("mailfunnels-logo.png", :alt => "Mailfunnels Logo") %>
+        </div>
+        <form class="form-horizontal form-label-right">
+          <h1>Forgot Password</h1>
+
+          <p style="color: white;">Please enter your email to retrieve your password.</p>
+
+          <div id="reset-pass-content">
+
+          <div class="form-group">
+
+            <div class="col-xs-12">
+              <input id="mf-reset-pass-email" type="email" class="form-control" placeholder="Email" required=""/>
+            </div>
+          </div>
+          <div>
+            <button id="mf-reset-pass-submit" type="button" class="btn btn-default" data-id="">Submit</button>
+          </div>
+
+          </div>
+
+          <div id="reset-pass-sent">
+
+            <p id="reset-pass-sent-content" style="color: white; font-weight: 600;">Your password has been sent to your email.</p>
+
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="separator">
+            <div class="clearfix"></div>
+            <br/>
+
+            <div>
+              <h1><i class="fa fa-envelope"></i> MailFunnels</h1>
+              <p>©2017 All Rights Reserved.</p>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+
+
+
+  </div>
+
+
+</div>
+
+
+</body>
+</html>

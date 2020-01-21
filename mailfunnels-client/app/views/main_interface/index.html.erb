@@ -1,0 +1,349 @@
+<% content_for :javascript do %>
+    <script type="text/javascript">
+        ShopifyApp.ready(function () {
+            ShopifyApp.Bar.initialize({
+                icon: '/mailfunnels-logo.jpg',
+                buttons: {
+                    primary: [
+                        { label: 'Kickstarter Appointment',
+                            message: 'mf_kickstart_support',
+                            callback: function(){
+                                Calendly.showPopupWidget('https://calendly.com/mailfunnels/kickstart'); return false;
+                            }
+                        }
+                    ],
+                    secondary: [
+                        { label: 'Facebook Group',
+                            message: 'facebook_group',
+                            callback: function(){
+                                window.open('https://www.facebook.com/groups/1899392843717613/', '_blank');
+                            }
+                        },
+                        { label: 'Become an Affiliate',
+                            message: 'mailfunnels_affiliate',
+                            callback: function(){
+                                window.open('http://mailfunnels.com/jv', '_blank');
+                            }
+                        },
+                        { label: 'Support',
+                            message: 'support_group',
+                            callback: function(){
+                                window.open('https://mailfunnels.freshdesk.com/support/tickets/new', '_blank');
+                            }
+                        }
+                    ]
+                }
+            });
+        });
+    </script>
+
+    <script>
+        window.intercomSettings = {
+            app_id: "a0xeo67y",
+            name: "<%= @app.user.first_name %> <%= @app.user.last_name %>", // Full name
+            email: "<%= @app.user.email %>" // Email address
+        };
+    </script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/a0xeo67y';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+
+
+    <%= javascript_include_tag 'dashboard_manifest' %>
+    <%= javascript_include_tag 'pages/home.js' %>
+    <%= stylesheet_link_tag 'dashboard.css' %>
+
+    <div class="hidden">
+      <input id="total_emails_sent" type="number" value="<%= @num_email_sent %>" />
+      <input id="total_emails_opened" type="number" value="<%= @num_email_opened %>" />
+      <input id="total_emails_clicked" type="number" value="<%= @num_email_clicked %>" />
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="page-title">
+          <div class="title_left">
+            <img class="mf_head_logo" src="/mf_logos/mf_logo_text.png"/>
+            <h3><small class="mf_head_title">Dashboard</small></h3>
+          </div>
+
+          <div class="title_right">
+            <% if @subs_left === -1 %>
+                <h4 class="text-danger pull-right">No Plan</h4>
+
+            <% elsif @user_plan === -2 %>
+                <% if @subs_left <= 100 %>
+                    <h4 class="text-danger pull-right"><%= @subs_left %> Trial Subscribers Remaining</h4>
+                <% else %>
+                    <h4 class="text-primary pull-right"><%= @subs_left %> Trial Subscribers Remaining</h4>
+                <% end %>
+
+            <% elsif @user_plan === -99 %>
+                <h4 class="text-danger pull-right">Free Trial Ended</h4>
+            <% elsif @subs_left <= 100 %>
+                <h4 class="text-danger pull-right"><%= @subs_left %> Subscribers Remaining</h4>
+
+            <% else %>
+                <h4 class="text-primary pull-right"><%= @subs_left %> Subscribers Remaining</h4>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="fade-2"/>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="">
+          <div class="x_content">
+
+            <div class="row">
+
+              <a href="<%= root_url %>all_subscribers">
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-users text-primary"></i>
+                    </div>
+                    <div class="count"><%= @app.subscribers.size %></div>
+
+                    <h3>Total Subscribers</h3>
+                  </div>
+                </div>
+              </a>
+
+              <a href="<%= root_url %>funnels">
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-filter text-primary"></i>
+                    </div>
+                    <div class="count"><%= @app.funnels.size %></div>
+
+                    <h3>Funnels</h3>
+                  </div>
+                </div>
+              </a>
+
+              <a href="<%= root_url %>lists">
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-list-ul text-primary"></i>
+                    </div>
+                    <div class="count"><%= @app.email_lists.size %></div>
+
+                    <h3>Email Lists</h3>
+                  </div>
+                </div>
+              </a>
+
+              <a href="<%= root_url %>email_templates">
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div class="tile-stats">
+                    <div class="icon"><i class="fa fa-file-text-o text-primary"></i>
+                    </div>
+                    <div class="count"><%= @num_templates %></div>
+
+                    <h3>Email Templates</h3>
+                  </div>
+                </div>
+              </a>
+
+            </div>
+
+
+
+            <div class="row">
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-paper-plane text-primary"></i>
+                  </div>
+
+                  <div class="count"><%= @num_email_sent %></div>
+
+                  <h3>Emails Sent</h3>
+                </div>
+              </div>
+              <div id="emails_opened_div" class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-envelope-open-o text-primary"></i>
+                  </div>
+                  <div id="emails_opened_view" class="count"><%= @num_email_opened %></div>
+
+                  <h3>Emails Opened</h3>
+                </div>
+              </div>
+              <div id="emails_clicked_div" class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-mouse-pointer text-primary"></i>
+                  </div>
+                  <div id="emails_clicked_view" class="count"><%= @num_email_clicked %></div>
+
+                  <h3>Emails Clicked</h3>
+                </div>
+              </div>
+              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="tile-stats">
+                  <div class="icon"><i class="fa fa-dollar text-primary"></i>
+                  </div>
+                  <div class="count"><%= number_to_currency(@total_revenue) %></div>
+
+                  <h3>Total Revenue</h3>
+                </div>
+              </div>
+            </div>
+
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="fade-2"/>
+
+
+    <div class="row">
+
+      <div class="hidden">
+        <!-- Day Number Values -->
+        <input id="num_emails_sent_day" type="number" />
+        <input id="num_emails_opened_day" type="number"/>
+        <input id="num_emails_clicked_day" type="number"/>
+
+        <!-- Week Number Values -->
+        <input id="num_emails_sent_week" type="number" />
+        <input id="num_emails_opened_week" type="number"/>
+        <input id="num_emails_clicked_week" type="number"/>
+
+        <!-- Month Number Values -->
+        <input id="num_emails_sent_month" type="number" />
+        <input id="num_emails_opened_month" type="number"/>
+        <input id="num_emails_clicked_month" type="number"/>
+
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Last 24 Hours</h2>
+            <div class="clearfix"></div>
+          </div>
+          <hr class="fade-2"/>
+          <div class="x_content">
+            <table class="table table-striped">
+              <tbody>
+              <tr style="border: none;">
+                <th style="border: none;">New Subscribers:</th>
+                <td id="new_subscribers_day" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Unsubscribers</th>
+                <td id="unsubscribers_day" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Emails Sent:</th>
+                <td id="emails_sent_day" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Emails Opened:</th>
+                <td id="emails_opened_day" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Emails Clicked</th>
+                <td id="emails_clicked_day" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Revenue</th>
+                <td id="revenue_day" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Last 7 Days</h2>
+            <div class="clearfix"></div>
+          </div>
+          <hr class="fade-2"/>
+          <div class="x_content">
+            <table class="table table-striped">
+              <tbody>
+              <tr>
+                <th style="border: none;">New Subscribers:</th>
+                <td id="new_subscribers_week" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Unsubscribers</th>
+                <td id="unsubscribers_week" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Emails Sent:</th>
+                <td id="emails_sent_week" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Emails Opened:</th>
+                <td id="emails_opened_week" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Emails Clicked</th>
+                <td id="emails_clicked_week" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Revenue</th>
+                <td id="revenue_week" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Last 30 Days</h2>
+            <div class="clearfix"></div>
+          </div>
+          <hr class="fade-2"/>
+          <div class="x_content">
+            <table class="table table-striped">
+              <tbody>
+              <tr>
+                <th style="border: none;">New Subscribers:</th>
+                <td id="new_subscribers_month" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Unsubscribers</th>
+                <td id="unsubscribers_month" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Emails Sent:</th>
+                <td id="emails_sent_month" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Emails Opened:</th>
+                <td id="emails_opened_month" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Emails Clicked</th>
+                <td id="emails_clicked_month" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              <tr>
+                <th style="border: none;">Revenue</th>
+                <td id="revenue_month" class="pull-right" style="border: none;">Loading...</td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+<% end %>

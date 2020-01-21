@@ -1,0 +1,143 @@
+<% content_for :admin do %>
+    <script type="text/javascript">
+        ShopifyApp.ready(function () {
+            ShopifyApp.Bar.initialize({
+                icon: '/mailfunnels-logo.jpg'
+            });
+        });
+    </script>
+
+
+
+    <%= javascript_include_tag 'triggers_manifest.js' %>
+    <%= javascript_include_tag 'pages/admin_panel/admin_all_users.js' %>
+    <%= stylesheet_link_tag 'dashboard.css' %>
+
+    <div class="hidden">
+      <input id="current_app_id" type="number" value="<%= @app.id %>"/>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="page-title">
+          <div class="title_left">
+            <img class="mf_head_logo" src="/mf_logos/mf_logo_text.png"/>
+            <h3><small class="mf_head_title">Admin Panel: All Users</small></h3>
+          </div>
+
+
+          <div class="title_right">
+            <button id="mf_admin_add_user" class="btn btn-primary btn-sm btn-border pull-right">
+              <i class="fa fa-plus"></i> Add User
+            </button>
+          </div>
+
+          <hr/>
+          <div class="clearfix"></div>
+
+        </div>
+      </div>
+    </div>
+
+    <hr class="fade-2"/>
+
+    <div class="row">
+
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Users</h2>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <!-- Triggers Table -->
+            <table id="users_table" class="table table-bordered text-center table-striped">
+
+              <!-- Triggers Table Header -->
+              <thead>
+              <tr>
+                <th class="text-center" style="width: 100px;">Infusionsoft ID</th>
+                <th class="text-center">First Name</th>
+                <th class="text-center">Last Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Action</th>
+              </tr>
+              </thead>
+              <!-- END Hooks Table Header -->
+
+              <!-- Hooks Table BODY -->
+              <tbody>
+              <% if @users.any? %>
+                  <% @users.each do |user| %>
+                      <tr>
+                        <td><span class="mf_table_value"><%= user.clientid %></span></td>
+                        <td><span class="mf_table_value"><%= user.first_name %></span></td>
+                        <td><span class="mf_table_value"><%= user.last_name %></span></td>
+                        <td><span class="mf_table_value"><%= user.email %></span></td>
+                        <td style="width: 50px;">
+                          <a href="<%= root_url %>admin/user_profile/<%= user.id %>" class="btn btn-sm btn-primary btn-border mf_table_action_btn">View</a>
+                        </td>
+                      </tr>
+                  <% end %>
+              <% end %>
+
+              </tbody>
+              <!-- END Hooks Table BODY -->
+
+            </table>
+            <!-- END Hooks Table -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div id="new_mf_user_modal" class="modal fade bs-example-modal-sm">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Manually Add User</h4>
+          </div>
+
+          <form class="form-horizontal form-label-left">
+
+            <div class="modal-body">
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">Infusionsoft ID</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="mf_new_user_inf_id" type="number" class="form-control" placeholder="Infusionsoft Client ID">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">User Email</label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input id="mf_new_user_email" type="text" class="form-control" placeholder="User Email">
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="modal-footer">
+              <button id="mf_new_user_submit" type="button" class="btn btn-success">Submit</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+
+<% end %>
+
+
+
